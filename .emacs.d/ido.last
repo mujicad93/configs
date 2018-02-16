@@ -1,0 +1,106 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/unit_level/" . "detector_aggregator/")
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/" . "unit_level/")
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/" . "tests/")
+ ("c:/Andres/git/" . "phalanx-picozed/")
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/" . "xsim/")
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/sim_1/" . "behav/")
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/" . "sim_1/")
+ ("c:/Andres/git/spi/Xilinx/alpha_live/" . "alpha_live.sim/")
+ ("c:/Andres/git/spi/Xilinx/" . "alpha_live/")
+ ("c:/Andres/git/spi/" . "Xilinx/")
+ ("c:/Andres/" . ".emacs.d/")
+ ("c:/Andres/git/phalanx-picozed-spec114-2/" . "sim/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "c:/Andres/.emacs.d/"
+ "c:/Andres/git/phalanx-picozed/rtl/params/"
+ "c:/Andres/git/phalanx-picozed/rtl/"
+ "c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/unit_level/point_cloud_packetizer/"
+ "c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/unit_level/detector_aggregator/"
+ "c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/xsim/"
+ "c:/Andres/git/spi/rtl/"
+ "/Andres/git/spi/rtl/"
+ "c:/Andres/git/phalanx-picozed-spec114-2/rtl/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "debug_params.vhd"
+ "spi_slave.vhd"
+ "tb_point_cloud_packetizer.sv"
+ "tb_detector_aggregator.sv"
+ "elaborate.log"
+ "max5550_spi.vhd"
+ "spi_master2.vhd~"
+ "spi_master2.vhd"
+ "point_cloud_packetizer.vhd"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("c:/Andres/git/phalanx-picozed/rtl/" (23164 42325 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_master.vhd" "spatial_transform.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed/rtl/params/" (23164 33568 0 0) "snapshot_params.vhd" "laser_params.vhd" "environment_params.vhd" "detector_params.vhd" "debug_params.vhd" "dac_params.vhd" "angles_params.vhd" "adc_params.vhd" "../" "./")
+
+ ("c:/Andres/.emacs.d/" (23164 43378 0 0) "server/" "init.el~" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" ".mc-lists.el" "../" "./")
+
+ ("c:/Andres/git/" (23164 32951 0 0) "phalanx-picozed/" "merge/" "built/" "../" "./")
+
+ ("c:/Andres/" (23164 32966 0 0) "temp/" "Stuff/" "git/" ".viminfo" ".lesshst" ".kdiff3rc" ".gitconfig" ".emacs.d/" ".dbus-keyrings/" ".bash_profile" ".bash_history" ".bashrc" "../" "./")
+
+ ("c:/Program Files/" (23164 41327 0 0) "WindowsPowerShell/" "WindowsApps/" "Windows Sidebar/" "Windows Security/" "Windows Portable Devices/" "Windows Photo Viewer/" "windows nt/" "Windows Multimedia Platform/" "Windows Media Player/" "Windows Mail/" "Windows Defender/" "VeraCrypt/" "Uninstall Information/" "Synaptics/" "Reference Assemblies/" "Realtek/" "Razer Chroma SDK/" "Python36/" "NVIDIA Corporation/" "MSBuild/" "Mozilla Firefox/" "Microsoft SQL Server/" "Microsoft Office 15/" "MATLAB/" "Malwarebytes/" "Killer Networking/" "KDiff3/" "internet explorer/" "Intel/" "IIS/" "Git/" "emacs/" "Dolby Digital Plus/" "DisplayLink Core Software/" "DIFX/" "desktop.ini" "Common Files/" "Application Verifier/" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed/" (23164 27161 0 0) "Xilinx/" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/unit_level/point_cloud_packetizer/" (23163 33705 0 0) "tb_point_cloud_packetizer.sv~" "tb_point_cloud_packetizer.sv" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/unit_level/detector_aggregator/" (23161 24569 0 0) "tb_detector_aggregator.sv~" "tb_detector_aggregator.sv" "../" "./")
+
+ ("c:/Andres/git/spi/rtl/" (23163 28430 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_slave.vhd~" "spi_slave.vhd" "spi_master2.vhd~" "spi_master2.vhd" "spi_master.vhd" "spi.vhd~" "spi.vhd" "spatial_transform.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" ".#max5550_spi.vhd" "#spi_master.vhd#" "#max5550_spi.vhd#" "../" "./")
+
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/xsim/" (23163 21560 0 0) "xvlog.pb" "xvlog.log" "xvhdl.pb" "xvhdl.log" "xsim.ini" "xsim.dir/" "xelab.pb" "webtalk_8212.backup.log" "webtalk_8212.backup.jou" "webtalk.log" "webtalk.jou" "tb_spi_vlog.prj" "tb_spi_vhdl.prj" "tb_spi_behav.wdb" "tb_spi.tcl" "simulate.log" "simulate.bat" "glbl.v" "elaborate.log" "elaborate.bat" "compile.log" "compile.bat" ".Xil/" "../" "./")
+
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/" (23163 16137 0 0) "xsim/" "../" "./")
+
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/sim_1/" (23163 16137 0 0) "behav/" "../" "./")
+
+ ("c:/Andres/git/spi/Xilinx/alpha_live/alpha_live.sim/" (23163 16137 0 0) "sim_1/" "../" "./")
+
+ ("c:/Andres/git/spi/Xilinx/alpha_live/" (23163 19479 0 0) "alpha_live.xpr" "alpha_live.srcs/" "alpha_live.sim/" "alpha_live.ip_user_files/" "alpha_live.hw/" "alpha_live.cache/" "../" "./")
+
+ ("c:/Andres/git/spi/Xilinx/" (23163 14024 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "boards/" "alpha_live/" ".gitignore" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/rtl/" (23161 43206 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_master.vhd" "spatial_transform.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "point_cloud_packetizer.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "diff_outputs.vhd" "diff_inputs.vhd" "detector_aggregator.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "#tristate.vhd#" "../" "./")
+
+ ("/Andres/git/spi/rtl/" (23163 13967 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_slave.vhd~" "spi_slave.vhd" "spi_master2.vhd~" "spi_master2.vhd" "spi_master.vhd" "spi.vhd~" "spi.vhd" "spatial_transform.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "#spi_master.vhd#" "../" "./")
+
+ ("/Andres/git/spi/" (23160 41650 0 0) "Xilinx/" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".gitignore" ".git/" "../" "./")
+
+ ("/Andres/git/" (23161 24569 0 0) "spi/" "phalanx-picozed-test/" "phalanx-picozed-spec114-2/" "phalanx-picozed-spec114/" "phalanx-picozed-built/" "phalanx-picozed/" "../" "./")
+
+ ("/Andres/" (23163 11740 0 0) "temp/" "Stuff/" "git/" ".viminfo" ".lesshst" ".kdiff3rc" ".gitconfig" ".emacs.d/" ".dbus-keyrings/" ".bash_profile" ".bash_history" ".bashrc" "../" "./")
+
+ ("c:/Andres/git/spi/" (23160 41650 0 0) "Xilinx/" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/Program Files/emacs/" (23040 19599 0 0) "var/" "share/" "libexec/" "bin/" "../" "./")
+
+ ("c:/Program Files/emacs/bin/" (23040 19586 0 0) "runemacs.exe" "libXpm-noX4.dll" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "emacs-25.3.exe" "ebrowse.exe" "ctags.exe" "addpm.exe" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/" (23161 24590 0 0) "Xilinx/" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/" (23161 24569 0 0) "tests/" "Testbenches/" "README.md" "Models/" "Aldec/" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/" (23161 24569 0 0) "unit_level/" "system_level/" "../" "./")
+
+ ("c:/Andres/git/phalanx-picozed-spec114-2/sim/tests/unit_level/" (23161 26896 0 0) "spatial_transform/" "rst702_delay/" "point_cloud_packetizer/" "laser_data_compression/" "frequency_monitor/" "detector_aggregator/" "dac/" "azimuth_angle/" "adc/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

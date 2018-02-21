@@ -18,6 +18,10 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; Add Line Numbers separated by a column
+(linum-relative-global-mode)
+(setq linum-format "%d ")
+
 ;; Bindings for multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -74,7 +78,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (neotree multiple-cursors solarized-theme evil magit dash)))
+    (linum-relative evil-magit evil-numbers flycheck neotree multiple-cursors solarized-theme evil magit dash)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(show-paren-mode t)
@@ -130,4 +134,6 @@
 
 (global-set-key (kbd "C-S-m") 'magit-status)
 (global-set-key (kbd "C-S-e") 'evil-mode)
+(global-set-key (kbd "C-S-l") 'linum-relative-global-mode)
 (global-set-key [f8] 'neotree-toggle)
+

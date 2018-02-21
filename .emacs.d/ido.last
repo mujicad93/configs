@@ -2,6 +2,9 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("c:/configs/" . ".emacs.d/")
+ ("c:/git/phalanx-picozed/Xilinx/SDK/" . "alpha_live.sdk/")
+ ("c:/git/" . "phalanx-picozed/")
  ("c:/Andres/git/phalanx-picozed/sim/tests/system_level/" . "basic_test/")
  ("c:/Andres/git/phalanx-picozed/sim/tests/" . "system_level/")
  ("c:/Andres/git/merge/Xilinx/" . "scripts/")
@@ -23,6 +26,8 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "c:/configs/.emacs.d/"
+ "c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core/src/"
  "c:/Andres/git/phalanx-picozed/rtl/"
  "c:/Andres/git/phalanx-picozed/Xilinx/scripts/"
  "c:/Andres/git/phalanx-picozed/rtl/params/"
@@ -41,6 +46,8 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "init.el"
+ "ctrl_core.c"
  "axisSwitchOnTimestamp.vhd"
  "point_cloud_packetizer.vhd"
  "elevationAngles.vhd"
@@ -49,12 +56,36 @@
  "mcb_comm.vhd"
  "mcb_spi.vhd"
  "Makefile"
- "Jenkinsfile"
- "ctrl_core.c"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("c:/configs/.emacs.d/" (23180 7714 0 0) "server/" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" ".mc-lists.el" "../" "./")
+
+ ("c:/configs/" (23180 6151 0 0) ".viminfo" ".idlerc/" ".gitconfig" ".git/" ".emacs.d/" ".bash_profile" ".bash_history" ".bashrc" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core_bsp/" (23180 6319 0 0) "system.mss" ".sdkproject" ".project" ".gitignore" ".cproject" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core/src/" (23180 6319 0 0) "xqspips_flash_lqspi.h" "xqspips_flash_lqspi.c" "Xilinx.spec" "uart_fifo.h" "uart_fifo.c" "snapshot.h" "snapshot.c" "platform_config.h" "platform.h" "platform.c" "lscript.ld" "ipc_parser.h" "ipc_parser.c" "Doxyfile" "dac_spi.h" "dac_spi.c" "ctrl_core.c" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core/" (23174 55763 0 0) "src/" "docs/" ".project" ".gitignore" ".cproject" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/" (23180 6579 0 0) "templates/" "system_wrapper.hdf" "hw_interfaces/" "eth_core_bsp/" "eth_core/" "debug/" "ctrl_core_bsp/" "ctrl_core/" "common/" "BOOT.bin" ".clang-format" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/" (23174 54730 0 0) "alpha_live.sdk/" ".gitignore" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/" (23180 6457 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "ip_cache/" "boards/" "alpha_live/" ".gitignore" "../" "./")
+
+ ("c:/Andres/.emacs.d/" (23174 53814 0 0) "server/" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" ".mc-lists.el" "../" "./")
+
+ ("c:/git/phalanx-picozed/" (23180 6579 0 0) "Xilinx/" "vivado_pid6076.str" "vivado.log" "vivado.jou" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".Xil/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/git/" (23174 54717 0 0) "phalanx-picozed/" "../" "./")
+
+ ("c:/emacs/" (23036 22851 0 0) "var/" "share/" "libexec/" "bin/" "../" "./")
+
+ ("c:/emacs/bin/" (23036 22582 0 0) "runemacs.exe" "libXpm-noX4.dll" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "emacs-25.3.exe" "ebrowse.exe" "ctags.exe" "addpm.exe" "../" "./")
+
  ("c:/Andres/git/phalanx-picozed/rtl/" (23171 28352 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_master.vhd" "spatial_transform.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "point_cloud_packetizer.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "detector_aggregator.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "../" "./")
 
  ("c:/Andres/git/phalanx-picozed/" (23171 9163 0 0) "Xilinx/" "vivado_pid5736.str" "vivado_12640.backup.log" "vivado_12640.backup.jou" "vivado.log" "vivado.jou" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".Xil/" ".gitignore" ".git/" "../" "./")
@@ -94,8 +125,6 @@
  ("c:/Andres/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/" (23164 27161 0 0) "src/" "includes/" "../" "./")
 
  ("c:/Andres/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/includes/" (23165 3680 0 0) "spi.h" "RoicRegisterValues_1p6Gbps_nm_HG.txt" "gtx.h" "debug_params.h" "csynth_ps.h" "ClockSynthRegisterValues-160MHz.txt" "angles_params.h" "adc.h" ".#angles_params.h" "../" "./")
-
- ("c:/Andres/.emacs.d/" (23164 43378 0 0) "server/" "init.el~" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" ".mc-lists.el" "../" "./")
 
  ("c:/Program Files/" (23164 41327 0 0) "WindowsPowerShell/" "WindowsApps/" "Windows Sidebar/" "Windows Security/" "Windows Portable Devices/" "Windows Photo Viewer/" "windows nt/" "Windows Multimedia Platform/" "Windows Media Player/" "Windows Mail/" "Windows Defender/" "VeraCrypt/" "Uninstall Information/" "Synaptics/" "Reference Assemblies/" "Realtek/" "Razer Chroma SDK/" "Python36/" "NVIDIA Corporation/" "MSBuild/" "Mozilla Firefox/" "Microsoft SQL Server/" "Microsoft Office 15/" "MATLAB/" "Malwarebytes/" "Killer Networking/" "KDiff3/" "internet explorer/" "Intel/" "IIS/" "Git/" "emacs/" "Dolby Digital Plus/" "DisplayLink Core Software/" "DIFX/" "desktop.ini" "Common Files/" "Application Verifier/" "../" "./")
 

@@ -147,6 +147,5 @@
 
 (global-set-key (kbd "C-S-m") 'magit-status)
 (global-set-key (kbd "C-S-e") 'evil-mode)
-(global-set-key (kbd "C-S-l") 'linum-relative-global-mode)
+(global-set-key (kbd "C-S-l") 'linum-mode)
 (global-set-key [f8] 'neotree-toggle)
-

@@ -22,6 +22,12 @@
 (linum-relative-global-mode)
 (setq linum-format "%d ")
 
+;; Set Vertical Line
+(setq column-number-mode t)
+(setq fci-rule-column 80)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
+
 ;; Bindings for multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -78,7 +84,7 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (linum-relative evil-magit evil-numbers flycheck neotree multiple-cursors solarized-theme evil magit dash)))
+    (fill-column-indicator linum-relative evil-magit evil-numbers flycheck neotree multiple-cursors solarized-theme evil magit dash)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(show-paren-mode t)

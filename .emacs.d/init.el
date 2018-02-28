@@ -18,11 +18,14 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
-;; Add Line Numbers separated by a column
+;; Add Line Numbers 
 (linum-relative-global-mode)
+;; Separate Line Numbers by a column
 (setq linum-format "%d ")
+;; Make current line display current line instead of 0
+(setq linum-relative-current-symbol "")
 
-;; Set Vertical Line
+;; Set Vertical Line at 80 columns for all modes
 (setq column-number-mode t)
 (setq fci-rule-column 80)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))

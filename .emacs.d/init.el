@@ -31,6 +31,10 @@
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
 
+;; Set automatic number increment to +/- in evil-mode
+(define-key evil-normal-state-map (kbd "<kp-add>") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "<kp-subtract>") 'evil-numbers/dec-at-pt)
+
 ;; Bindings for multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)

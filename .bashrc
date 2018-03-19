@@ -24,6 +24,7 @@ alias gitl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold 
 alias gitl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 alias gs="git status"
 alias gitclean="git clean -x -d -f"
+alias cdg="cd ~/../git"
 
 ###Luminar Aliases
 alias gc="git clone https://github.com/luminartech/phalanx-picozed.git"
@@ -32,6 +33,7 @@ alias cf="clang-format -i -style=file"
 alias cf1="find . -type f \( -iname \*.h -o -iname \*.c \) -exec clang-format -style=file -i {} \;"
 alias cfall="find Xilinx/SDK/alpha_live.sdk -type f \( -iname \*.h -o -iname \*.c \) -exec clang-format -style=file -i {} \;"
 alias vsp="vivado -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupproj &"
+alias vop="vivado -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs stopsrcscan &"
 alias vba="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs buildall &"
 alias vqb="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupproj downloadbuilt implement exportsdk launchsdk &"
 alias vsimsp="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupprojsim &"

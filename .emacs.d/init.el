@@ -9,6 +9,15 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+;; store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+;; ONLY UNCOMMENT IF FILE SAVING IS BREAKING THINGS
+;;(setq make-backup-files nil)
+;;(setq auto-save-default nil)
+
 ;; Automatically use vim key bindings
 (require 'evil)
 (evil-mode 1)

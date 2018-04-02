@@ -25,6 +25,15 @@ space-before-tab space-after-tab))
 ; turn on whitespace-mode in any 'programming mode'
 (add-hook 'prog-mode-hook (lambda () (whitespace-mode t)))
 
+;; Show paren mode on by default
+(show-paren-mode 1)
+
+;; Convert tabs to spaces
+(setq-default indent-tabs-mode nil)
+
+;; Set default fill width to 80 chars:
+(setq-default fill-column 80)
+
 ;; Automatically use vim key bindings
 (require 'evil)
 (evil-mode 1)
@@ -34,7 +43,7 @@ space-before-tab space-after-tab))
 (setq ido-everywhere t)
 (ido-mode 1)
 
-;; Add Line Numbers 
+;; Add Line Numbers
 (linum-relative-global-mode)
 ;; Separate Line Numbers by a column
 (setq linum-format "%d ")

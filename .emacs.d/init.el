@@ -18,6 +18,13 @@
 ;;(setq make-backup-files nil)
 ;;(setq auto-save-default nil)
 
+;; Setup Emacs white space mode on any programming file
+(require 'whitespace)
+(setq whitespace-style '(face trailing indentation
+space-before-tab space-after-tab))
+; turn on whitespace-mode in any 'programming mode'
+(add-hook 'prog-mode-hook (lambda () (whitespace-mode t)))
+
 ;; Automatically use vim key bindings
 (require 'evil)
 (evil-mode 1)
@@ -158,3 +165,5 @@
 (global-set-key (kbd "C-S-e") 'evil-mode)
 (global-set-key (kbd "C-S-l") 'linum-mode)
 (global-set-key [f8] 'neotree-toggle)
+(global-set-key (kbd "C-S-w") 'whitespace-cleanup)
+(global-set-key (kbd "C-S-t") 'untabify)

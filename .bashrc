@@ -25,6 +25,7 @@ alias gitl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold
 alias gs="git status"
 alias gitclean="git clean -x -d -f"
 alias cdg="cd ~/../git"
+alias cdp="cd ~/../git/phalanx-picozed"
 
 ###Luminar Aliases
 alias gc="git clone https://github.com/luminartech/phalanx-picozed.git"
@@ -38,3 +39,4 @@ alias vba="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl
 alias vqb="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupproj downloadbuilt implement exportsdk launchsdk &"
 alias vsimsp="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupprojsim &"
 alias vsdkb="xsct Xilinx/scripts/alpha_live_build_sdk.tcl buildall"
+alias rmx="rm -rf Xilinx/alpha_live/"

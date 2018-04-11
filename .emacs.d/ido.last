@@ -1,0 +1,197 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("c:/git/phalanx-picozed/rtl/" . "params/")
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/" . "includes/")
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/" . "xsim/")
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/sim_1/" . "behav/")
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/" . "sim_1/")
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/" . "alpha_live.sim/")
+ ("c:/git/phalanx-picozed/" . "Xilinx/")
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/hw_interfaces/" . "includes/")
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/" . "hw_interfaces/")
+ ("c:/git/supervisor/Xilinx/" . "scripts/")
+ ("c:/git/merge/Xilinx/SDK/" . "alpha_live.sdk/")
+ ("c:/configs/" . ".emacs.d/")
+ ("c:/git/phalanx-picozed/sim/" . "Testbenches/")
+ ("c:/git/phalanx-picozed/Xilinx/ip_repo/" . "gtx_4chan/")
+ ("c:/git/phalanx-picozed/Xilinx/" . "scripts/")
+ ("c:/git/respin/sim/" . "Testbenches/")
+ ("c:/git/respin/sim/tests/system_level/" . "basic_test/")
+ ("c:/git/respin/sim/tests/" . "system_level/")
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/" . "hw_interfaces/")
+ ("c:/git/phalanx-picozed/Xilinx/SDK/" . "alpha_live.sdk/")
+ ("c:/git/respin/Xilinx/" . "scripts/")
+ ("c:/git/respin/" . "Xilinx/")
+ ("c:/git/master/Xilinx/" . "scripts/")
+ ("c:/git/" . "phalanx-picozed/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "c:/git/phalanx-picozed/rtl/params/"
+ "c:/git/phalanx-picozed/Xilinx/scripts/"
+ "c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core/src/"
+ "c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/includes/"
+ "c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/eth_core/src/"
+ "c:/git/phalanx-picozed/rtl/"
+ "c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/xsim/"
+ "c:/configs/.emacs.d/"
+ "c:/git/supervisor/Xilinx/scripts/"
+ "c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/ctrl_core/src/"
+ "c:/git/supervisor/rtl/params/"
+ "c:/git/merge/Xilinx/SDK/alpha_live.sdk/fsbl/src/"
+ "c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/src/"
+ "c:/git/phalanx-picozed/sim/Testbenches/"
+ "c:/git/phalanx-picozed/sim/Models/"
+ "c:/git/phalanx-picozed/Xilinx/ip_repo/gtx_4chan/src/"
+ "c:/git/respin/sim/Testbenches/"
+ "c:/git/respin/rtl/"
+ "c:/git/respin/Xilinx/scripts/"
+ "c:/git/master/rtl/params/"
+ "c:/git/master/rtl/"
+ "c:/git/master/Xilinx/scripts/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "debugParams.vhd"
+ "alpha_live_build_sdk.tcl"
+ "defaults.c"
+ "ctrl_core.c"
+ "alpha_live_build_vivado.tcl"
+ "RoicRegisterValues_1p6Gbps_R1.txt"
+ "RoicRegisterValues_1p6Gbps_L1.txt"
+ "dac_spi.h"
+ "dac_spi.c"
+ "eth_core.c"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("c:/git/phalanx-picozed/rtl/params/" (23238 51145 0 0) "snapshot_params.vhd" "motor_control_params.vhd" "laser_params.vhd" "environment_params.vhd" "detector_params.vhd" "debugParams.vhd" "dac_params.vhd" "control_supervisor_params.vhd" "angles_params.vhd" "adc_params.vhd" "../" "./")
+
+ ("c:/git/phalanx-picozed/rtl/" (23238 65159 0 0) "vhdl-usage.vhd" "unpack702Data.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_pulse.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_slave.vhd" "spi_master2.vhd" "spi_master.vhd" "spatial_transform.vhd" "snapshot_enable.vhd" "snapshot_dma_packetizer.vhd" "snapshot_angles_tb.vhd" "snapshot_angles.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "ray702_pkg.vhd" "proc702_nobram.vhd" "proc702Simple.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "point_cloud_packetizer.vhd" "pic_spi_slave.vhd" "params/" "mux_laser_data.vhd" "muxN.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "mcb_spi.vhd" "mcb_comm.vhd" "max5550_spi.vhd" "gtxToAxisFifo.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "gate_signal_by_interlock.vhd" "frequency_monitor.vhd" "freqmon.vhd" "endian_swap.vhd" "elevation_encoder.vhd" "elevationAngles.vhd" "detector_aggregator.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "control_supervisor_tb.vhd" "control_supervisor_pkg.vhd" "control_supervisor.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axis_switch_timestamp.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "../" "./")
+
+ ("c:/git/phalanx-picozed/" (23238 65251 0 0) "Xilinx/" "vivado.log" "vivado.jou" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".Xil/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/scripts/" (23238 55705 0 0) "alpha_live_build_vivado.tcl" "alpha_live_build_sdk.tcl" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/" (23238 58512 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "ip_cache/" "boards/" "alpha_live/" ".Xil/" ".gitignore" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/" (23238 62702 0 0) "webtalk/" "templates/" "system_wrapper_hw_platform_0/" "system_wrapper.hdf" "SDK.log" "RemoteSystemsTempFiles/" "output.bif" "MCB-communications/" "hw_interfaces/" "fsbl_bsp/" "fsbl/" "eth_core_bsp/" "eth_core/" "debug/" "ctrl_core_bsp/" "ctrl_core/" "common/" "BOOT.bin" "BOOT-internal.bin" ".metadata/" ".gitignore" ".clang-format" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core/" (23238 58572 0 0) "src/" "docs/" "Debug/" ".project" ".gitignore" ".cproject" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/ctrl_core/src/" (23238 61756 0 0) "Xilinx.spec" "platform_config.h" "platform.h" "platform.c" "menu.h" "menu.c" "lscript.ld" "ipc_parser.h" "ipc_parser.c" "Doxyfile" "defaults.h" "defaults.c" "dac_spi.h" "dac_spi.c" "ctrl_core.c" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/includes/" (23238 50776 0 0) "udp_ray_tx.h" "supply_scheduling.h" "supervisor.h" "snapshot.h" "RoicRegisterValues_1p6Gbps_TRI_H20XX_X.txt" "RoicRegisterValues_1p6Gbps_T0_CompOffset_HG.txt" "RoicRegisterValues_1p6Gbps_R1.txt" "RoicRegisterValues_1p6Gbps_Quench.txt" "RoicRegisterValues_1p6Gbps_L1.txt" "RoicRegisterValues_1p6Gbps_CompOffset_HG.txt" "Roic702.h" "qspi_flash.h" "persistent_params.h" "ocm_mem_space.h" "mcb_control.h" "manufacture.h" "lookup.h" "laser.h" "hw_interface.h" "group_scan_mapping.h" "environment_params.h" "debug_params.h" "csynth_ps.h" "CSC_permissions.h" "CSCMessageCategories.h" "ClockSynthRegisterValues-160MHz.txt" "angles_params.h" "adc.h" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/eth_core/src/" (23237 4513 0 0) "Xilinx.spec" "udp_snapshot.h" "udp_snapshot.c" "udp_sensor_data.h" "udp_sensor_data.c" "udp_parser.h" "udp_parser.c" "tcp_parser.h" "tcp_parser.c" "platform_zynq.c" "platform_config.h" "platform.h" "pixel_dma.h" "pixel_dma.c" "phalanx_messages_defs.h" "luminar_SensorControl_Common.h" "lscript.ld" "ip_services.h" "ip_services.c" "eth_core.c" "Doxyfile" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/eth_core/" (23236 8638 0 0) "src/" "docs/" ".project" ".gitignore" ".cproject" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/xsim/" (23236 11305 0 0) "xvlog.pb" "xvlog.log" "xvhdl.pb" "xvhdl.log" "xsim.ini.bak" "xsim.ini" "xsim.dir/" "xelab.pb" "tb_serdesToRange_vlog.prj" "tb_serdesToRange_vhdl.prj" "glbl.v" "elaborate.log" "elaborate.bat" "compile.log" "compile.bat" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/sim_1/behav/" (23236 11297 0 0) "xsim/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/sim_1/" (23236 11297 0 0) "behav/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/alpha_live.sim/" (23236 11297 0 0) "sim_1/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/alpha_live/" (23236 11148 0 0) "alpha_live.xpr" "alpha_live.srcs/" "alpha_live.sim/" "alpha_live.ip_user_files/" "alpha_live.hw/" "alpha_live.cache/" "../" "./")
+
+ ("c:/git/" (23236 11148 0 0) "phalanx-picozed/" "LidarDataAnalysis/" "../" "./")
+
+ ("c:/configs/.emacs.d/" (23230 58756 0 0) "server/" "init.el" "ido.last" "elpa/" "auto-save-list/" ".mc-lists.el" "../" "./")
+
+ ("c:/configs/" (23234 12993 0 0) ".viminfo" ".sudo_as_admin_successful" ".saves/" ".gnupg/" ".gitconfig" ".git/" ".emacs.d/" ".dbus-keyrings/" ".cache/" ".bash_profile" ".bash_history" ".bashrc" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/scripts/" (23229 5444 0 0) "alpha_live_build_vivado.tcl" "alpha_live_build_sdk.tcl" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/" (23229 5093 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "ip_cache/" "boards/" "alpha_live/" ".gitignore" "../" "./")
+
+ ("c:/git/supervisor/" (23229 5096 0 0) "Xilinx/" "vivado_pid1084.str" "vivado_7248.backup.log" "vivado_7248.backup.jou" "vivado_7108.backup.log" "vivado_7108.backup.jou" "vivado.log" "vivado.jou" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".Xil/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/git/supervisor/rtl/" (23229 3114 0 0) "vhdl-usage.vhd" "unpack702Data.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_pulse.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_slave.vhd" "spi_master2.vhd" "spi_master.vhd" "spatial_transform.vhd" "snapshot_enable.vhd" "snapshot_dma_packetizer.vhd" "snapshot_angles_tb.vhd" "snapshot_angles.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "ray702_pkg.vhd" "proc702_nobram.vhd" "proc702Simple.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "point_cloud_packetizer.vhd" "pic_spi_slave.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "mcb_spi.vhd" "mcb_comm.vhd" "max5550_spi.vhd" "gtxToAxisFifo.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "gate_signal_by_interlock.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "endian_swap.vhd" "elevation_encoder.vhd" "elevationAngles.vhd" "detector_aggregator.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "control_supervisor_tb.vhd" "control_supervisor_pkg.vhd" "control_supervisor.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axis_switch_timestamp.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "../" "./")
+
+ ("c:/Program Files/" (23221 31224 0 0) "Wireshark/" "WindowsPowerShell/" "WindowsApps/" "Windows Sidebar/" "Windows Security/" "Windows Portable Devices/" "Windows Photo Viewer/" "windows nt/" "Windows Multimedia Platform/" "Windows Media Player/" "Windows Mail/" "Windows Defender/" "VeraCrypt/" "Uninstall Information/" "Synaptics/" "Reference Assemblies/" "Realtek/" "Razer Chroma SDK/" "Python36/" "NVIDIA Corporation/" "MSBuild/" "Mozilla Firefox/" "Microsoft SQL Server/" "Microsoft Office 15/" "MATLAB/" "Malwarebytes/" "LLVM/" "Killer Networking/" "KDiff3/" "internet explorer/" "Intel/" "IIS/" "Git/" "emacs/" "Dolby Digital Plus/" "DisplayLink Core Software/" "DIFX/" "desktop.ini" "Common Files/" "Application Verifier/" "Allied Vision/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/ip_repo/gtx_4chan/src/" (23216 1031 0 0) "gtx_quad.vhd" "gtx_4chan/" "../" "./")
+
+ ("c:/git/phalanx-picozed/sim/Models/" (23216 1031 0 0) "simpkg.vhd" "README.md" "range_data.sv" "pulse_generator.sv" "Makefile" "Elevation_SSI_Timing.PNG" "elevation_ssi_slave_pkg.vhd" "elevation_ssi_slave_pkg.vh" "elevation_ssi_slave.vhd" "Elevation_SSI_Model.md" "elevation_encoder_spi_slave.vhd" "elevation_angle_spi_master.vhd" "elevation_angle_spi_data_pkg.vhd" "elevation_angle_spi_data_pkg.vh" "Elevation-Fraction-of-circle.xlsx" "Elevation-Fraction-of-circle.csv" "directed_test/" "createElevationSSISlavePackage.py" "createElevationAngleSPIData.py" "constant_frequency.vhd" "clockgen.vhd" "axis_stream_slave.sv" "../" "./")
+
+ ("c:/git/phalanx-picozed/sim/Testbenches/" (23216 1031 0 0) "testbench_error_codes.v" "testbench.sv" "README.md" "elevation_encoder_tb.vhd" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/src/" (23217 45162 0 0) "udp_ray_tx.c" "uart_fifo.h" "uart_fifo.c" "supply_scheduling.c" "Roic702.c" "qspi_flash.c" "persistent_params.c" "mcb_control.c" "manufacture.c" "lookup.c" "laser.c" "hw_interface.c" "group_scan_mapping.c" "csynth_ps.c" "ClockSynthRegisterValues-100MHz.txt" "adc.c" "../" "./")
+
+ ("c:/git/supervisor/rtl/params/" (23217 30484 0 0) "snapshot_params.vhd" "motor_control_params.vhd" "laser_params.vhd" "environment_params.vhd" "detector_params.vhd" "debug_params.vhd" "dac_params.vhd" "control_supervisor_params.vhd" "angles_params.vhd" "adc_params.vhd" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/hw_interfaces/includes/" (23217 30483 0 0) "udp_ray_tx.h" "supply_scheduling.h" "supervisor.h" "RoicRegisterValues_1p6Gbps_T0_CompOffset_HG.txt" "RoicRegisterValues_1p6Gbps_R1.txt" "RoicRegisterValues_1p6Gbps_L1.txt" "RoicRegisterValues_1p6Gbps_CompOffset_HG.txt" "Roic702.h" "qspi_flash.h" "persistent_params.h" "ocm_mem_space.h" "mcb_control.h" "manufacture.h" "lookup.h" "laser.h" "hw_interface.h" "group_scan_mapping.h" "environment_params.h" "debug_params.h" "csynth_ps.h" "CSC_permissions.h" "CSCMessageCategories.h" "ClockSynthRegisterValues-160MHz.txt" "angles_params.h" "adc.h" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/hw_interfaces/" (23217 15523 0 0) "src/" "includes/" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/" (23217 15523 0 0) "templates/" "MCB-communications/" "hw_interfaces/" "fsbl_bsp/" "fsbl/" "eth_core_bsp/" "eth_core/" "debug/" "ctrl_core_bsp/" "ctrl_core/" "common/" ".metadata/" ".gitignore" ".clang-format" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/ctrl_core/" (23217 15523 0 0) "src/" "docs/" ".project" ".gitignore" ".cproject" "../" "./")
+
+ ("c:/git/supervisor/Xilinx/SDK/alpha_live.sdk/ctrl_core/src/" (23218 42406 0 0) "Xilinx.spec" "snapshot.h" "snapshot.c" "platform_config.h" "platform.h" "platform.c" "menu.h" "menu.c" "lscript.ld" "ipc_parser.h" "ipc_parser.c" "Doxyfile" "dac_spi.h" "dac_spi.c" "ctrl_core.c" "'" "../" "./")
+
+ ("c:/git/merge/Xilinx/SDK/alpha_live.sdk/fsbl/" (23216 65356 0 0) "src/" ".project" ".gitignore" ".cproject" "../" "./")
+
+ ("c:/git/merge/Xilinx/SDK/alpha_live.sdk/" (23216 65356 0 0) "templates/" "MCB-communications/" "hw_interfaces/" "fsbl_bsp/" "fsbl/" "eth_core_bsp/" "eth_core/" "debug/" "ctrl_core_bsp/" "ctrl_core/" "common/" ".metadata/" ".gitignore" ".clang-format" "../" "./")
+
+ ("c:/git/merge/Xilinx/SDK/" (23216 65356 0 0) "alpha_live.sdk/" ".gitignore" "../" "./")
+
+ ("c:/git/merge/Xilinx/" (23216 65356 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "boards/" ".gitignore" "../" "./")
+
+ ("c:/git/merge/" (23216 65356 0 0) "Xilinx/" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/git/merge/Xilinx/SDK/alpha_live.sdk/fsbl/src/" (23217 2621 0 0) "Xilinx.spec" "sd.h" "sd.c" "rsa.h" "rsa.c" "qspi.h" "qspi.c" "ps7_parameters.xml" "pcap.h" "pcap.c" "nor.h" "nor.c" "nand.h" "nand.c" "md5.h" "md5.c" "main.c" "lscript.ld" "image_mover.h" "image_mover.c" "fsbl_hooks.h" "fsbl_hooks.c" "fsbl_handoff.S" "fsbl_debug.h" "fsbl.h" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/alpha_live.sdk/hw_interfaces/" (23206 26612 0 0) "src/" "includes/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/SDK/" (23206 26612 0 0) "alpha_live.sdk/" ".gitignore" "../" "./")
+
+ ("c:/git/phalanx-picozed/sim/" (23206 26612 0 0) "tests/" "Testbenches/" "README.md" "Models/" "Aldec/" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/ip_repo/gtx_4chan/" (23209 10054 0 0) "xgui/" "src/" "component.xml" "../" "./")
+
+ ("c:/git/phalanx-picozed/Xilinx/ip_repo/" (23206 26612 0 0) "gtx_4chan/" "elevation_encoder/" "clkEnDivider/" "axi_stream_counter/" "axi_spi_control_1.0/" "axi_spi_control.tmp/" "../" "./")
+
+ ("c:/git/respin/sim/Testbenches/" (23208 12219 0 0) "testbench_error_codes.v" "testbench.sv" "README.md" "elevation_encoder_tb.vhd" "../" "./")
+
+ ("c:/git/respin/sim/tests/system_level/basic_test/" (23208 12808 0 0) "xvlog.pb" "xvlog.log" "xvhdl.pb" "xvhdl.log" "xsim.ini" "xsim.dir/" "xelab.pb" "testbench_vlog.prj" "testbench_vhdl.prj" "testbench_parameters.v" "README.md" "Makefile" "elaborate.log" "../" "./")
+
+ ("c:/git/respin/sim/tests/system_level/" (23208 12173 0 0) "basic_test/" "../" "./")
+
+ ("c:/git/respin/sim/tests/" (23208 12173 0 0) "unit_level/" "system_level/" "../" "./")
+
+ ("c:/git/respin/sim/" (23208 12173 0 0) "tests/" "Testbenches/" "README.md" "Models/" "Aldec/" "../" "./")
+
+ ("c:/git/respin/" (23208 12518 0 0) "Xilinx/" "vivado.log" "vivado.jou" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".Xil/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/git/respin/rtl/" (23198 42360 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_pulse.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_slave.vhd" "spi_master2.vhd" "spi_master.vhd" "spatial_transform.vhd" "snapshot_enable.vhd" "snapshot_dma_packetizer.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "pic_spi_slave.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "mcb_spi.vhd" "mcb_comm.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "elevationAngles.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "control_supervisor_tb.vhd" "control_supervisor_pkg.vhd" "control_supervisor.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "../" "./")
+
+ ("c:/git/respin/Xilinx/scripts/" (23198 42360 0 0) "alpha_live_build_vivado.tcl" "alpha_live_build_sdk.tcl" "../" "./")
+
+ ("c:/git/respin/Xilinx/" (23198 42360 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "boards/" ".gitignore" "../" "./")
+
+ ("c:/git/master/Xilinx/scripts/" (23197 49637 0 0) "alpha_live_build_vivado.tcl" "alpha_live_build_sdk.tcl" "../" "./")
+
+ ("c:/git/master/Xilinx/" (23191 11793 0 0) "SDK/" "scripts/" "README.md" "ip_repo/" "ip_cache/" "boards/" "alpha_live/" ".gitignore" "../" "./")
+
+ ("c:/git/master/rtl/" (23197 48572 0 0) "vhdl-usage.vhd" "syng_genv.vhd" "syndat.vhd" "sync_signal.vhd" "sync_pulse.vhd" "sync_laser_data.vhd" "sync_gen.vhd" "square_wave_gen.vhd" "spi_slave.vhd" "spi_master2.vhd" "spi_master.vhd" "spatial_transform.vhd" "snapshot_enable.vhd" "snapshot_dma_packetizer.vhd" "simple_spi_master.vhd" "signal_gen.vhd" "sdpbram_512x32.vhd" "save_raw.vhd" "rx_detect.vhd" "rst702_delay.vhd" "roic_spi_top.vhd" "roic_spi.vhd" "reformat_gtx.vhd" "README.md" "proc702_nobram.vhd" "proc702.vhd" "presort_bram.vhd" "power_sync.vhd" "pic_spi_slave.vhd" "params/" "mux_laser_data.vhd" "mux2.vhd" "mc_top.vhd" "mc_spi.vhd" "mcb_spi.vhd" "mcb_comm.vhd" "max5550_spi.vhd" "gen_Ts_W.vhd" "gen_laser_return.vhd" "frequency_monitor.vhd" "freqmon.vhd" "fpga_ato_select.vhd" "elevation_encoder.vhd" "elevationEstimator.vhd~" "elevationEstimator.vhd" "elevationAngles.vhd" "decode_4K.vhd" "debug_data_select_tb.vhd" "debug_data_select.vhd" "dcombine.vhd" "dac_spi.vhd" "control_supervisor_tb.vhd" "control_supervisor_pkg.vhd" "control_supervisor.vhd" "common_pkg.vhd" "chanDSP.vhd" "byte2word.vhd" "buf_outputs.vhd" "buf_inputs.vhd" "azimuth_valid.vhd" "azimuth_angle.vhd" "axi_stream_packetizer.vhd" "axilite_regs.vhd" "alpha_live.vhd" "adc_spi_alpha.vhd" "adc_spi.vhd" "adc128s102_controller.vhd" "aa_2p1.vhd" "../" "./")
+
+ ("c:/git/master/rtl/params/" (23197 42678 0 0) "snapshot_params.vhd" "motor_control_params.vhd" "laser_params.vhd" "environment_params.vhd" "detector_params.vhd" "debug_params.vhd" "dac_params.vhd" "angles_params.vhd" "adc_params.vhd" "../" "./")
+
+ ("c:/git/master/" (23191 13404 0 0) "Xilinx/" "vivado.log" "vivado.jou" "tools/" "snapshots/" "sim/" "rtl/" "README.md" "Jenkinsfile" "dockerfiles/" "doc/" ".Xil/" ".gitignore" ".git/" "../" "./")
+
+ ("c:/Program Files/emacs/" (23040 19599 0 0) "var/" "share/" "libexec/" "bin/" "../" "./")
+
+ ("c:/Program Files/emacs/bin/" (23040 19586 0 0) "runemacs.exe" "libXpm-noX4.dll" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "emacs-25.3.exe" "ebrowse.exe" "ctags.exe" "addpm.exe" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

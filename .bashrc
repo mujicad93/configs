@@ -23,9 +23,13 @@ alias rc="vim ~/.bashrc"
 alias gitl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias gitl2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 alias gs="git status"
-alias gitclean="git clean -x -d -f"
 alias cdg="cd ~/../git"
 alias cdp="cd ~/../git/phalanx-picozed"
+alias gitclean="git clean -x -d -f"
+      # -x Don’t use the standard ignore rules read from .gitignore
+      # -d Remove untracked directories in addition to untracked files
+      # -f Required when -d is specified
+      # -e Ignore pattern
 
 ###Luminar Aliases
 alias gc="git clone https://github.com/luminartech/phalanx-picozed.git"
@@ -38,6 +42,7 @@ alias vsp="vivado -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs se
 alias vop="vivado -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs stopsrcscan &"
 alias vba="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs buildall &"
 alias vqb="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupproj downloadbuilt implement exportsdk launchsdk &"
+alias vdb="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs downloadbuilt launchsdk &"
 alias vsimsp="vivado -mode batch -source Xilinx/scripts/alpha_live_build_vivado.tcl -tclargs setupprojsim &"
 alias vsdkb="xsct Xilinx/scripts/alpha_live_build_sdk.tcl buildall"
 alias rmx="rm -rf Xilinx/alpha_live/"

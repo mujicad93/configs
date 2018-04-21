@@ -109,7 +109,10 @@ space-before-tab space-after-tab))
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(inhibit-startup-screen t)
+ '(magit-branch-arguments nil)
  '(magit-diff-use-overlays nil)
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(magit-merge-arguments (quote ("--ff-only" "--no-ff")))
  '(magit-rebase-arguments (quote ("--autosquash" "--interactive")))
  '(nrepl-message-colors
    (quote
@@ -176,3 +179,4 @@ space-before-tab space-after-tab))
 (global-set-key [f8] 'neotree-toggle)
 (global-set-key (kbd "C-S-w") 'whitespace-cleanup)
 (global-set-key (kbd "C-S-t") 'untabify)
+(global-set-key (kbd "C-S-d") 'magit-popup-save-default-arguments)

@@ -60,6 +60,11 @@ space-before-tab space-after-tab))
 (define-key evil-normal-state-map (kbd "<kp-add>") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "<kp-subtract>") 'evil-numbers/dec-at-pt)
 
+;; Exit vim insert mode by pressing j and then j quickly
+(setq key-chord-two-keys-delay 0.5)
+(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-mode 1)
+
 ;; Bindings for multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -119,7 +124,7 @@ space-before-tab space-after-tab))
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (fill-column-indicator linum-relative evil-magit evil-numbers flycheck neotree multiple-cursors solarized-theme evil magit dash)))
+    (key-chord fill-column-indicator linum-relative evil-magit evil-numbers flycheck neotree multiple-cursors solarized-theme evil magit dash)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(show-paren-mode t)
@@ -150,6 +155,7 @@ space-before-tab space-after-tab))
      (360 . "#268bd2"))))
  '(vc-annotate-very-old-color nil)
  '(verilog-align-ifelse t)
+ '(verilog-auto-delete-trailing-whitespace t)
  '(verilog-auto-lineup (quote all))
  '(verilog-auto-newline nil)
  '(verilog-indent-begin-after-if nil)

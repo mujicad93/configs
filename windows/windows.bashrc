@@ -16,5 +16,7 @@ export cformat="/c/Program\ Files/LLVM/bin/clang-format"
 ### Directories
 alias cdg="cd /c/git"
 alias cdp="cd /c/git/phalanx-picozed"
+alias cdi="cd /c/git/iris_firmware"
+alias cdv="cd /c/Vector/CBD1901196_D00_BCM8910x/Applications/SipAddon/hydra_hello_autosar/Appl"
 
 source ${configsDir}/all/source.bashrc

@@ -14,6 +14,7 @@ export xilDir="/c/Xilinx"
 export cformat="/c/Program\ Files/LLVM/bin/clang-format"
 
 ### Directories
+alias cdc="cd $HOME/configs"
 alias cdg="cd /c/git"
 alias cdp="cd /c/git/phalanx-picozed"
 alias cdi="cd /c/git/iris_firmware"

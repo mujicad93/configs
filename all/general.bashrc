@@ -28,4 +28,5 @@ alias linrc='$DEFEDIT ${configsDir}/linux/linux.bashrc'
 alias genrc='$DEFEDIT ${configsDir}/all/general.bashrc'
 alias gitrc='$DEFEDIT ${configsDir}/all/git.bashrc'
 alias xilrc='$DEFEDIT ${configsDir}/all/xilinx.bashrc'
+alias winrc='$DEFEDIT ${configsDir}/windows/windows.bashrc'
 alias srcrc="source ~/.bashrc"

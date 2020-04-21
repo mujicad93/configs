@@ -48,6 +48,8 @@ sudo apt install openvpn -y
 # Mac changer
 sudo apt install macchanger -y
 
+#sudo adduser $USER vboxsf
+
 # creaty git ssh key
 ssh-keygen -t rsa -b 4096 -C "andres.mujica@luminartech.com"
 eval $(ssh-agent -s)

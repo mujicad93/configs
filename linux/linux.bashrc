@@ -39,6 +39,16 @@ alias hbacp="hydra_build_arm_clean && hydra_prog"
 alias powon='echo "OUTP:STAT ON" | telnet 192.168.10.63 5024'
 alias powoff='echo "OUTP:STAT OFF" | telnet 192.168.10.63 5024'
 
+## Echoes all udp commands sent by the hydra (received on port 58900)
+function hydra_udp_recv {
+  nc -ul 58900
+}
+
+## Send console command over UDP ($* concatenates all arguments to function into 1 string)
+function hydra_udp_send {
+  echo "$*" > /dev/udp/192.168.10.1/58900
+}
+
 export desktop_ip="172.16.20.202"
 export vizcomp_ip="172.16.22.39"
 export username="andres"

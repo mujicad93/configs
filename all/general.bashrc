@@ -15,6 +15,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grepr='grep --color=auto -n -i -r'
 alias su='sudo su'
+alias findfile='find . -iname'
 
 ### Text Editors
 export DEFEDIT="vim"

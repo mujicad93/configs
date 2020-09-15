@@ -1,0 +1,9 @@
+#!/bin/sh
+
+from=$(git name-rev --name-only $1)
+to=$(git name-rev --name-only $2)
+
+if [[ "$from" = "master_alpha" ]] || [[ "$from" = "master" ]]; then
+  git branch -D $from
+fi
+

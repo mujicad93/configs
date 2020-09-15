@@ -3,6 +3,7 @@
         name = Andres Mujica
 [core]
         editor = vim
+        longpaths = true
 [credential]
         helper = cache
 [pull]
@@ -22,3 +23,5 @@
         mrg = merge --ff-only --no-ff
         cl = clean -x -d -f
         rbc = rebase --continue
+[init]
+        templatedir = ~/configs/all/git_template

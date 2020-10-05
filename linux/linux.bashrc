@@ -4,7 +4,6 @@
 export configsDir="/home/$USER/configs"
 
 ### Tools
-# If xilinx version is not specified then default to 2018.2
 if [[ -v xilVer ]]; then
   echo "using xilinx version $xilVer"
 else
@@ -13,11 +12,19 @@ fi
 export xilDir="/opt/Xilinx"
 export cformat="clang-format-5.0"
 
+MAIN_ASAR_DIR=~/git/iris_firmware/hydra_iris_autosar_vcc
+MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
+
 ### Directories
 alias cdg="cd ~/git"
-alias cdp="cd ~/git/phalanx-picozed"
 alias cdh="cd ~/git/iris_firmware/hydra && source scripts/setup-env.sh"
-alias cdph="cd ~/git/iris_firmware/hydra/arm/out/app/bcm89107_evk && hydra_program"
+alias cdi="cd ~/git/iris_firmware"
+alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
+alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
+
+export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
+alias acp="cp ~/windows/Hydra_Autosar.elf ${MAIN_ASAR_BUILD_DIR} -f"
+alias ap="acp && cd ~/git/iris_firmware/hydra/arm/autosar && ./smash && hydra_flash ${ASAR_ZIP} cd -"
 
 ### grep
 alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
@@ -26,16 +33,10 @@ alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
 # -Bn includes n lines of context before match
 
 ## Others
-alias envision="cde && ./run.sh &"
-alias hupdate="python3 ~/git/phalanx-picozed/tools/SSBL/update.py"
 alias pcapp="cd ~/PcapPlayer && ./run.sh &"
-alias matl="cdl && matlab"
 alias lumvpn="sudo openvpn --config ~/vpn/mco1-vpn02-amujica-laptop-2020-config.ovpn"
 alias startssh="sudo systemctl status ssh"
 alias stopssh="sudo systemctl stop ssh"
-alias hba="hydra_build_arm"
-alias hbac="hydra_build_arm_clean"
-alias hbacp="hydra_build_arm_clean && hydra_prog"
 alias powon='echo "OUTP:STAT ON" | telnet 192.168.10.63 5024'
 alias powoff='echo "OUTP:STAT OFF" | telnet 192.168.10.63 5024'
 
@@ -50,7 +51,6 @@ function hydra_udp_send {
 }
 
 export desktop_ip="172.16.20.202"
-export vizcomp_ip="172.16.22.39"
 export username="andres"
 
 if [[ -v IP ]]; then

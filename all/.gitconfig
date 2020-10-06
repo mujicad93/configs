@@ -1,27 +1,29 @@
 [user]
-        email = andres.mujica@luminartech.com
-        name = Andres Mujica
+	email = andres.mujica@luminartech.com
+	name = Andres Mujica
 [core]
-        editor = vim
-        longpaths = true
+	editor = vim
+	longpaths = true
 [credential]
-        helper = cache
+	helper = cache
+[branch]
+	autosetupmerge = always
 [pull]
 	rebase = interactive
 [push]
-        default = current
+	default = current
 [fetch]
 	prune = true
 [format]
-        pretty = format:%C(auto)%h %>(16)%C(green)%aN %C(blue)%>(14)%ar %Creset%s %C(bold yellow)%d%C(reset)
+	pretty = format:%C(auto)%h %>(16)%C(green)%aN %C(blue)%>(14)%ar %Creset%s %C(bold yellow)%d%C(reset)
 [submodule]
-        recurse = true
+	recurse = true
 [alias]
-        lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
-        lga = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-        lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' -p
-        mrg = merge --ff-only --no-ff
-        cl = clean -x -d -f
-        rbc = rebase --continue
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+	lga = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' -p
+	mrg = merge --ff-only --no-ff
+	cl = clean -x -d -f
+	rbc = rebase --continue
 [init]
-        templatedir = ~/configs/all/git_template
+	templatedir = ~/configs/all/git_template

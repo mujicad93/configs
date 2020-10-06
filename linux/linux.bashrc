@@ -23,13 +23,17 @@ alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
 alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 
 export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
+export ASAR_ELF=Hydra_Autosar.elf
 
 function hydra_copy {
-  cp ~/windows/Hydra_Autosar.elf ${MAIN_ASAR_BUILD_DIR} -f
+  cp ~/windows/${ASAR_ELF} ${MAIN_ASAR_BUILD_DIR} -f
 }
 
 function hydra_iris_prog {
-  hydra_copy;
+  # Remove zip so we don't program an old one if the copy fails
+  rm ASAR_ZIP -f
+  rm ${MAIN_ASAR_BUILD_DIR}/${ASAR_ELF} -f
+  hydra_copy
   cd ~/git/iris_firmware/hydra/arm/autosar;
   ./smash;
   hydra_flash ${ASAR_ZIP};

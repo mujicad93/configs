@@ -3,8 +3,9 @@
 # Luminar Aliases #
 ###################
 
-#source $xilDir/Vivado/$xilVer/settings64.sh
 echo "source $xilDir/Vivado/$xilVer/settings64.sh"
+source $xilDir/Vivado/$xilVer/settings64.sh
+alias cmake="/snap/bin/cmake"
 
 # export LM_LICENSE_FILE="27020@10.0.7.22"
 # export SNPSLMD_LICENSE_FILE=$LM_LICENSE_FILE

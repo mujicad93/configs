@@ -79,13 +79,17 @@ function rm_asar_elf {
 }
 
 function hydra_build_windowsvm {
-  ab;
-  mv ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /z/
+  # Remove so we don't accidentally use an old elf
+  rm /z/Hydra_Autosar.elf -f
+  hb;
+  cp ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /z/
 }
 
 function hydra_build_linuxvm {
-  ab;
-  mv ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /VM/Ubuntu18/shared/
+  # Remove so we don't accidentally use an old elf
+  rm /c/VM/Ubuntu18/shared/Hydra_Autosar.elf -f
+  hb;
+  cp ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /c/VM/Ubuntu18/shared/
 }
 
 ## Short names

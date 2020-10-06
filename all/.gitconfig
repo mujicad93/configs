@@ -6,8 +6,6 @@
 	longpaths = true
 [credential]
 	helper = cache
-[branch]
-	autosetupmerge = always
 [pull]
 	rebase = interactive
 [push]

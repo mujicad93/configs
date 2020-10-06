@@ -23,8 +23,21 @@ alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
 alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 
 export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
-alias acp="cp ~/windows/Hydra_Autosar.elf ${MAIN_ASAR_BUILD_DIR} -f"
-alias ap="acp && cd ~/git/iris_firmware/hydra/arm/autosar && ./smash && hydra_flash ${ASAR_ZIP} cd -"
+
+function hydra_copy {
+  cp ~/windows/Hydra_Autosar.elf ${MAIN_ASAR_BUILD_DIR} -f
+}
+
+function hydra_iris_prog {
+  hydra_copy;
+  cd ~/git/iris_firmware/hydra/arm/autosar;
+  ./smash;
+  hydra_flash ${ASAR_ZIP};
+  cd -
+}
+
+alias hcp="hydra_copy"
+alias hp="hydra_iris_prog"
 
 ### grep
 alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
@@ -33,8 +46,9 @@ alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
 # -Bn includes n lines of context before match
 
 ## Others
+VPN_FILE=~/vpn/mco1-vpn02-amujica-laptop-2020-config.ovpn
 alias pcapp="cd ~/PcapPlayer && ./run.sh &"
-alias lumvpn="sudo openvpn --config ~/vpn/mco1-vpn02-amujica-laptop-2020-config.ovpn"
+alias lumvpn="sudo openvpn --config ${VPN_FILE}"
 alias startssh="sudo systemctl status ssh"
 alias stopssh="sudo systemctl stop ssh"
 alias powon='echo "OUTP:STAT ON" | telnet 192.168.10.63 5024'

@@ -13,7 +13,7 @@ fi
 export xilDir="/c/Xilinx"
 export cformat="/c/Program\ Files/LLVM/bin/clang-format"
 
-### Directories
+# Directories
 alias cdc="cd $HOME/configs"
 alias cdg="cd /c/git"
 alias cdi="cd /c/git/iris_firmware"
@@ -23,30 +23,77 @@ alias cdf="cd /c/git/iris_firmware/common/fpga_regs"
 
 alias wrc="vim ~/configs/windows/windows.bashrc"
 
+# Autosar stuff
 MAIN_ASAR_DIR=C:/git/iris_firmware/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
 
-alias abvm="ab && mv ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /z/"
+function hydra_build {
+  # Remove so we don't accidentally use an old elf
+  rm_asar_elf;
+  cd ${MAIN_ASAR_BUILD_DIR};
+  ./iris_build.bat;
+  cd -
+}
 
-alias ab="cd ${MAIN_ASAR_BUILD_DIR}; ./iris_build.bat; cd -"
-alias acb="cd ${MAIN_ASAR_BUILD_DIR}; ./iris_rebuild.bat; cd -"
-alias ac="rm ${MAIN_ASAR_BUILD_DIR}/dep ${MAIN_ASAR_BUILD_DIR}/obj ${MAIN_ASAR_BUILD_DIR}/err ${MAIN_ASAR_BUILD_DIR}/lib ${MAIN_ASAR_BUILD_DIR}/lst -rf"
-function asar_smash {
+function hydra_cleanbuild {
+  cd ${MAIN_ASAR_BUILD_DIR};
+  ./iris_rebuild.bat;
+  cd -
+}
+
+## Create flashable zip
+function hydra_smash {
   cd /c/git/iris_firmware/hydra/arm/autosar
   wsl ./smash
   cd -
 }
+
 function hydra_flash {
   cd /c/git/iris_firmware/hydra/arm/tools/bcm8910x/scripts
   device=$(python flasher.py -l | grep '^[0-9]\+' -m 1)
   powershell python flasher.py -d $device -f 0 -i $1
   cd -
 }
-alias ap="asar_smash && hydra_flash C:/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip"
-alias acp="cp /c/git/iris_firmware/hydra_iris_autosar_vcc/processor_build_files/Hydra_Autosar.elf /c/VM/Ubuntu18/shared/"
-alias mr="cd /c/git/iris_firmware/common/fpga_regs && wsl make clean && wsl make && cd -"
-alias mpp="cd /c/git/iris_firmware/hydra/pp/applications/datapath && wsl make clean && wsl jmake && cd -"
-alias rmelf="rm -f ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf"
+
+function hydra_prog {
+  hydra_smash;
+  hydra_flash C:/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
+}
+
+function make_regs {
+  cd /c/git/iris_firmware/common/fpga_regs;
+  wsl make clean;
+  wsl make;
+  cd -
+}
+
+function make_pp {
+  cd /c/git/iris_firmware/hydra/pp/applications/datapath;
+  wsl make clean;
+  wsl make;
+  cd -
+}
+
+function rm_asar_elf {
+  rm -f ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf
+}
+
+function hydra_build_windowsvm {
+  ab;
+  mv ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /z/
+}
+
+function hydra_build_linuxvm {
+  ab;
+  mv ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /VM/Ubuntu18/shared/
+}
+
+## Short names
+alias hb="hydra_build"
+alias hcb="hydra_cleanbuild"
+alias hp="hydra_prog"
+alias hbw="hydra_build_windowsvm"
+alias hbl="hydra_build_linuxvm"
 
 source ${configsDir}/all/source.bashrc
 

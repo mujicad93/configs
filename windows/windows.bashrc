@@ -26,6 +26,8 @@ alias wrc="vim ~/configs/windows/windows.bashrc"
 MAIN_ASAR_DIR=C:/git/iris_firmware/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
 
+alias abvm="ab && mv ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /z/"
+
 alias ab="cd ${MAIN_ASAR_BUILD_DIR}; ./iris_build.bat; cd -"
 alias acb="cd ${MAIN_ASAR_BUILD_DIR}; ./iris_rebuild.bat; cd -"
 alias ac="rm ${MAIN_ASAR_BUILD_DIR}/dep ${MAIN_ASAR_BUILD_DIR}/obj ${MAIN_ASAR_BUILD_DIR}/err ${MAIN_ASAR_BUILD_DIR}/lib ${MAIN_ASAR_BUILD_DIR}/lst -rf"

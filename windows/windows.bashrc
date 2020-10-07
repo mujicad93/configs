@@ -26,6 +26,7 @@ alias wrc="vim ~/configs/windows/windows.bashrc"
 # Autosar stuff
 MAIN_ASAR_DIR=C:/git/iris_firmware/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
+MAIN_HYDRA_ELF=Hydra_Autosar.elf
 
 function hydra_build {
   # Remove so we don't accidentally use an old elf
@@ -56,8 +57,10 @@ function hydra_flash {
 }
 
 function hydra_prog {
-  hydra_smash;
-  hydra_flash C:/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
+  if test -f "${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF}"; then
+    hydra_smash;
+    hydra_flash C:/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
+  fi
 }
 
 function make_regs {
@@ -75,21 +78,21 @@ function make_pp {
 }
 
 function rm_asar_elf {
-  rm -f ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf
+  rm -f ${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF}
 }
 
 function hydra_build_windowsvm {
   # Remove so we don't accidentally use an old elf
-  rm /z/Hydra_Autosar.elf -f
+  rm /z/${MAIN_HYDRA_ELF} -f
   hb;
-  cp ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /z/
+  cp ${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF} /z/
 }
 
 function hydra_build_linuxvm {
   # Remove so we don't accidentally use an old elf
-  rm /c/VM/Ubuntu18/shared/Hydra_Autosar.elf -f
+  rm /c/VM/Ubuntu18/shared/${MAIN_HYDRA_ELF} -f
   hb;
-  cp ${MAIN_ASAR_BUILD_DIR}/Hydra_Autosar.elf /c/VM/Ubuntu18/shared/
+  cp ${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF} /c/VM/Ubuntu18/shared/
 }
 
 ## Short names

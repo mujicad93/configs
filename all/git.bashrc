@@ -12,4 +12,6 @@ alias gitclean="git clean -x -d -f"
       # -f Required when -d is specified
       # -e Ignore pattern
 alias gitmerge="gitmerge --ff-only --no-ff"
+alias gb='git branch -a -v --sort=-committerdate'
+alias gb2="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 

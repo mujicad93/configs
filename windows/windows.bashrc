@@ -36,6 +36,13 @@ function hydra_build {
   cd -
 }
 
+function hydra_depend {
+  # Remove so we don't accidentally use an old elf
+  cd ${MAIN_ASAR_BUILD_DIR};
+  rm dep -rf
+  cd -
+}
+
 function hydra_cleanbuild {
   cd ${MAIN_ASAR_BUILD_DIR};
   ./iris_rebuild.bat;
@@ -97,6 +104,7 @@ function hydra_build_linuxvm {
 
 ## Short names
 alias hb="hydra_build"
+alias hd="hydra_depend"
 alias hcb="hydra_cleanbuild"
 alias hp="hydra_prog"
 alias hbw="hydra_build_windowsvm"

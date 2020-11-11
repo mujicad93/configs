@@ -20,6 +20,7 @@ alias cdi="cd /c/git/iris_firmware"
 alias cda="cd /c/git/iris_firmware/hydra_iris_autosar_vcc"
 alias cdas="cd /c/git/iris_firmware/source_iris_autosar_common"
 alias cdf="cd /c/git/iris_firmware/common/fpga_regs"
+alias cdbl="cd /c/git/iris_firmware/hydra_iris_bootloader_vcc/CBD2000319_D00/Bootloader/HydraFbl/Appl"
 
 alias wrc="vim ~/configs/windows/windows.bashrc"
 
@@ -27,6 +28,8 @@ alias wrc="vim ~/configs/windows/windows.bashrc"
 MAIN_ASAR_DIR=C:/git/iris_firmware/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
 MAIN_HYDRA_ELF=Hydra_Autosar.elf
+
+ASAR_BL_DIR=C:/git/iris_firmware/hydra_iris_bootloader_vcc/CBD2000319_D00/Bootloader/HydraFbl/Appl
 
 function hydra_build {
   # Remove so we don't accidentally use an old elf
@@ -102,6 +105,13 @@ function hydra_build_linuxvm {
   cp ${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF} /c/VM/Ubuntu18/shared/
 }
 
+function hydra_build_bl {
+  # Remove so we don't accidentally use an old elf
+  cd ${ASAR_BL_DIR};
+  ./m.bat;
+  cd -
+}
+
 ## Short names
 alias hb="hydra_build"
 alias hd="hydra_depend"
@@ -109,6 +119,8 @@ alias hcb="hydra_cleanbuild"
 alias hp="hydra_prog"
 alias hbw="hydra_build_windowsvm"
 alias hbl="hydra_build_linuxvm"
+
+alias hbbl="hydra_build_bl"
 
 source ${configsDir}/all/source.bashrc
 

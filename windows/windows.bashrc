@@ -81,9 +81,16 @@ function make_regs {
 }
 
 function make_pp {
-  cd /c/git/iris_firmware/hydra/pp/applications/datapath;
-  wsl make clean;
-  wsl make;
+  cd /c/git/iris_firmware/hydra;
+  wsl bash -i -c "source ./scripts/setup-env.sh && make -C pp/applications/datapath clean"
+  wsl bash -i -c "source ./scripts/setup-env.sh && make -C pp/applications/datapath all"
+  cd -
+}
+
+function sim_pp {
+  cd /c/git/iris_firmware/hydra;
+  wsl bash -i -c "source ./scripts/setup-env.sh && make -C pp/applications/datapath clean"
+  wsl bash -i -c "source ./scripts/setup-env.sh && make -C pp/applications/datapath sim"
   cd -
 }
 

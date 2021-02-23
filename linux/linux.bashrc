@@ -19,6 +19,7 @@ MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
 alias cdg="cd ~/git"
 alias cdh="cd ~/git/iris_firmware/hydra && source scripts/setup-env.sh"
 alias cdi="cd ~/git/iris_firmware"
+alias cdf="cd ~/git/iris_firmware/fpga"
 alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
 alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 
@@ -40,8 +41,32 @@ function hydra_iris_prog {
   cd -
 }
 
+function fpga__build {
+  cdf
+  make clean
+  cd hls
+  make clean
+  cd ../syn
+  make DATAPATH=pr_1p3
+  cd ../par
+  make DATAPATH=pr_1p3
+}
+
+function fpga__clean_build {
+  cdf
+  make cleaner
+  cd hls
+  make clean
+  cd ../syn
+  make DATAPATH=pr_1p3
+  cd ../par
+  make DATAPATH=pr_1p3
+}
+
 alias hcp="hydra_copy"
 alias hp="hydra_iris_prog"
+alias fb="fpga__build"
+alias fcb="fpga__clean_build"
 
 ### grep
 alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"

@@ -43,17 +43,9 @@ function hydra_build {
   cd -
 }
 
-function hydra_build_asar_only {
-  # Remove so we don't accidentally use an old elf
-  rm_asar_elf;
-  cd ${MAIN_ASAR_BUILD_DIR};
-  ./m.bat;
-  cd -
-}
-
 function hydra_as_build {
   # Remove so we don't accidentally use an old elf
-  rm_asar_elf;
+  rm ${MAIN_ASAR_BUILD_DIR}/Hydra_AS_FBL.elf -f
   cd ${MAIN_ASAR_BUILD_DIR};
   ./m.bat -f Makefile.FBL;
   cd -
@@ -72,8 +64,13 @@ function hydra_fbl_build {
 }
 
 function hydra_cp_fbl {
+  rm ${ASAR_GROUP_DIR}/HydraFbl.elf -f
   cp ${ASAR_FBL_DIR}/HydraFbl.elf ${ASAR_GROUP_DIR}
+
+  rm ${ASAR_GROUP_DIR}/HydraBM.elf -f
   cp ${ASAR_BM_DIR}/HydraBM.elf ${ASAR_GROUP_DIR}
+
+  rm ${ASAR_GROUP_DIR}/Hydra_AS_FBL.elf -f
   cp ${MAIN_ASAR_BUILD_DIR}/Hydra_AS_FBL.elf ${ASAR_GROUP_DIR}
 }
 
@@ -81,10 +78,10 @@ function hydra_build_all {
   hydra_as_build
   hydra_bm_build
   hydra_fbl_build
-  hydra_cp_fbl
 }
 
-function hydra_make_boot {
+## Create flashable zip
+function hydra_smash {
   cd  ${ASAR_GROUP_DIR}
   wsl ./minvect HydraBm.elf HydraFbl.elf Hydra_AS_FBL.elf
   cd -
@@ -105,14 +102,7 @@ function hydra_clean_build {
 
 function hydra_clean_build_asar {
   cd ${MAIN_ASAR_BUILD_DIR};
-  ./b.bat;
-  cd -
-}
-
-## Create flashable zip
-function hydra_smash {
-  cd /c/git/iris_firmware/hydra/arm/autosar
-  wsl ./smash
+  ./b.bat -f Makefile.FBL;
   cd -
 }
 
@@ -124,10 +114,10 @@ function hydra_flash {
 }
 
 function hydra_prog {
-  if test -f "${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF}"; then
-    hydra_smash;
-    hydra_flash C:/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
-  fi
+  rm ${ASAR_GROUP_DIR}/Hydra_AS_FBL.elf -f
+  hydra_cp_fbl
+  hydra_smash
+  hydra_flash C:/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_VLoader_autosar.zip
 }
 
 function make_regs {
@@ -178,7 +168,7 @@ function sim_pp_all {
 }
 
 function rm_asar_elf {
-  rm -f ${MAIN_ASAR_BUILD_DIR}/${MAIN_HYDRA_ELF}
+  rm -f ${MAIN_ASAR_BUILD_DIR}/Hydra_As
 }
 
 function hydra_build_windowsvm {
@@ -204,7 +194,7 @@ function hydra_build_bl {
 
 ## Short names
 alias hb="hydra_build"
-alias hba="hydra_build_asar_only"
+alias hba="hydra_as_build"
 alias hd="hydra_depend"
 alias hcb="hydra_clean_build"
 alias hcba="hydra_clean_build_asar"

@@ -23,6 +23,12 @@ alias cdf="cd ~/git/iris_firmware/fpga"
 alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
 alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 
+#whenever you want to save stuff to a unique file just call something like command >> $TIMEFILE or command | tee $TIMEFILE
+TIMEFILE="test_$(date +"%F_%T")"
+
+alias pr1p3_tests__build="cmake .. -GNinja && ninja && ninja install"
+alias pr1p3_tests__run="cd .. && ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
+
 export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
 export ASAR_ELF=Hydra_Autosar.elf
 
@@ -47,9 +53,9 @@ function fpga__build {
   cd hls
   make clean
   cd ../syn
-  make DATAPATH=pr_1p3
+  make
   cd ../par
-  make DATAPATH=pr_1p3
+  make
 }
 
 function fpga__clean_build {
@@ -58,9 +64,9 @@ function fpga__clean_build {
   cd hls
   make clean
   cd ../syn
-  make DATAPATH=pr_1p3
+  make
   cd ../par
-  make DATAPATH=pr_1p3
+  make
 }
 
 alias hcp="hydra_copy"

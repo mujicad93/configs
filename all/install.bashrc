@@ -54,6 +54,8 @@ sudo apt install macchanger -y
 # cd /opt/Xilinx/Vivado/2019.1/data/xicom/cable_drivers/lin64/install_script/install_drivers
 # sudo ./install_drivers
 
+sudo apt --fix-broken install
+
 # creaty git ssh key
 ssh-keygen -t rsa -b 4096 -C "andres.mujica@luminartech.com"
 eval $(ssh-agent -s)

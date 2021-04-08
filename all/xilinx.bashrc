@@ -17,6 +17,9 @@ export XILINX_VIVADO=/opt/Xilinx/Vivado/$XIL_VER
 export XILINX_SDK=/opt/Xilinx/SDK/$XIL_VER
 export XIL_VIV_PATH=$XILINX_VIVADO/bin
 
+# Needed for vivado hls in wsl
+export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
+
 ##------------------------------------------------------------------------------------------
 ## Synopsys variables
 ##------------------------------------------------------------------------------------------

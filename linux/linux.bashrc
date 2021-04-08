@@ -18,6 +18,8 @@ MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
 ### Directories
 alias cdg="cd ~/git"
 alias cdh="cd ~/git/iris_firmware/hydra && source scripts/setup-env.sh"
+alias cdp="cd ~/git/iris_firmware/hydra/pp/applications/datapath_pr"
+alias cdm="cd ~/git/iris_firmware/resim/LidarDataAnalysis/src"
 alias cdi="cd ~/git/iris_firmware"
 alias cdf="cd ~/git/iris_firmware/fpga"
 alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
@@ -27,7 +29,11 @@ alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 TIMEFILE="test_$(date +"%F_%T")"
 
 alias pr1p3_tests__build="cmake .. -GNinja && ninja && ninja install"
-alias pr1p3_tests__run="cd .. && ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
+alias pr1p3_tests__run_fpga="cd .. && ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
+alias pr1p3_tests__run_fusion="cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_fusion.py"
+alias pr1p3_tests__run_cal="cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_full.py"
+
+alias ml="cdm; matlab"
 
 export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
 export ASAR_ELF=Hydra_Autosar.elf
@@ -44,6 +50,15 @@ function hydra_iris_prog {
   cd ~/git/iris_firmware/hydra/arm/autosar;
   ./smash;
   hydra_flash ${ASAR_ZIP};
+  cd -
+}
+
+function pp__sim_pr {
+  rm /mnt/c/linux/sim_csv/sim.csv -f
+  cdp
+  make clean
+  make sim MIPI_FRAMES_FILE=$1
+  mv sim/sim.csv /mnt/c/linux/sim_csv/sim.csv
   cd -
 }
 
@@ -116,3 +131,7 @@ alias lumsshx11="ssh $IP -X -C -l $username"
 alias lumsshfoward="ssh -L 1235:localhost:10240 $IP -l $username"
 
 source ${configsDir}/all/source.bashrc
+
+cdh
+cd -
+

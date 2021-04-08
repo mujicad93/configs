@@ -20,7 +20,7 @@ export XIL_VIV_PATH=$XILINX_VIVADO/bin
 # Needed for vivado hls in wsl
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
 
-function xilinx_drivers{
+function xilinx_drivers {
   cd $xilDir/Vivado/$xilVer/data/xicom/cable_drivers/lin64/install_script/install_drivers
   sudo ./install_drivers
 }

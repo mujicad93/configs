@@ -28,10 +28,10 @@ alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 #whenever you want to save stuff to a unique file just call something like command >> $TIMEFILE or command | tee $TIMEFILE
 TIMEFILE="test_$(date +"%F_%T")"
 
-alias pr1p3_tests__build="cmake .. -GNinja && ninja && ninja install"
-alias pr1p3_tests__run_fpga="cd .. && ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
-alias pr1p3_tests__run_fusion="cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_fusion.py"
-alias pr1p3_tests__run_cal="cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_full.py"
+alias pr1p3_tests__build="cdi; cd resim; rm build -rf; mkdir build; cd build; cmake .. -GNinja && ninja && ninja install"
+alias pr1p3_tests__run_fpga="cdi; cd resim/build; ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
+alias pr1p3_tests__run_fusion="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_fusion.py"
+alias pr1p3_tests__run_cal="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_full.py"
 
 alias ml="cdm; matlab"
 
@@ -57,7 +57,12 @@ function pp__sim_pr {
   rm /mnt/c/linux/sim_csv/sim.csv -f
   cdp
   make clean
-  make sim MIPI_FRAMES_FILE=$1
+  if [ -z "$1" ]
+  then
+    make sim
+  else
+    make sim MIPI_FRAMES_FILE=$1
+  fi
   mv sim/sim.csv /mnt/c/linux/sim_csv/sim.csv
   cd -
 }

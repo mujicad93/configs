@@ -55,7 +55,7 @@ function hydra_iris_prog {
 
 function pp__sim_pr {
   cdp
-  rm ~/pcaps/sim.csv
+  rm ~/pcaps/sim.csv -f
   make clean
   if [ -z "$1" ]
   then

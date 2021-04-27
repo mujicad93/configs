@@ -54,8 +54,8 @@ function hydra_iris_prog {
 }
 
 function pp__sim_pr {
-  rm /mnt/c/linux/sim_csv/sim.csv -f
   cdp
+  rm ~/pcaps/sim.csv
   make clean
   if [ -z "$1" ]
   then
@@ -63,7 +63,7 @@ function pp__sim_pr {
   else
     make sim MIPI_FRAMES_FILE=$1
   fi
-  mv sim/sim.csv /mnt/c/linux/sim_csv/sim.csv
+  mv sim/sim.csv ~/pcaps/
   cd -
 }
 
@@ -108,6 +108,7 @@ alias startssh="sudo systemctl status ssh"
 alias stopssh="sudo systemctl stop ssh"
 alias powon='echo "OUTP:STAT ON" | telnet 192.168.10.63 5024'
 alias powoff='echo "OUTP:STAT OFF" | telnet 192.168.10.63 5024'
+alias microcom='echo "******* ctrl+h for backspace, ctrl+\ to quit *******"; microcom'
 
 ## Echoes all udp commands sent by the hydra (received on port 58900)
 function hydra_udp_recv {
@@ -118,6 +119,8 @@ function hydra_udp_recv {
 function hydra_udp_send {
   echo "$*" > /dev/udp/192.168.10.1/58900
 }
+
+alias hydracom="microcom -s 115200 -p /dev/ttyUSB0"
 
 export desktop_ip="172.16.20.202"
 export username="andres"

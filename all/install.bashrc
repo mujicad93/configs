@@ -15,7 +15,8 @@ INSTALL_OPENVPN=
 cd
 
 # Google Chrome
-if [[ -n INSTALL_CHROME ]] then
+if [[ -n $INSTALL_CHROME ]]
+then
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 fi
@@ -34,7 +35,8 @@ source ~/.bashrc
 
 # Text Editors
 sudo apt install vim -y
-if [[ -n INSTALL_VSCODE ]] then
+if [[ -n $INSTALL_VSCODE ]]
+then
 sudo snap install code --classic
 fi
 
@@ -42,34 +44,33 @@ fi
 sudo apt install clang-format-5.0 -y
 
 # Terminator
-if [[ -n INSTALL_TERM ]] then
+if [[ -n $INSTALL_TERM ]]
+then
 sudo apt-get install terminator -y
 fi
 
 # Putty
-if [[ -n INSTALL_PUTTY ]] then
+if [[ -n $INSTALL_PUTTY ]]
+then
 sudo apt install putty -y
 sudo usermod -a -G dialout $USER
-cp ~/configs/all/.putty ~/
 fi
 
-# cmake
-sudo apt install cmake -y
-#sudo apt-get install libboost-all-dev -y
-
 # Wireshark
-if [[ -n INSTALL_WIRESHARK ]] then
+if [[ -n $INSTALL_WIRESHARK ]]
+then
 sudo apt-get install wireshark
-$ sudo dpkg-reconfigure wireshark-common
-$ sudo usermod -a -G wireshark $USER
+sudo usermod -a -G wireshark $USER
 fi
 
 # OpenVPN
-if [[ -n INSTALL_OPENVPN ]] then
+if [[ -n $INSTALL_OPENVPN ]]
+then
 sudo apt install openvpn -y
 fi
 
-if [[ -n VBOX ]] then
+if [[ -n $VBOX ]]
+then
 sudo adduser $USER vboxsf
 fi
 

@@ -128,6 +128,7 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
+alias lt='ls -alt' # print in order of time modified
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:

@@ -61,13 +61,38 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 if [ "$color_prompt" = yes ]; then
+    export RED='\[\033[0;31m\]'
+    export BLUE='\[\033[0;34m\]'
+    export NO_COLOR='\[\033[0m\]'
+
+    export RS='\[\033[0m\]'    # reset
+    export HC='\[\033[1m\]'    # hicolor
+    export UL='\[\033[4m\]'    # underline
+    export INV='\[\033[7m\]'   # inverse background and foreground
+    export FBLK='\[\033[30m\]' # foreground black
+    export FRED='\[\033[31m\]' # foreground red
+    export FGRN='\[\033[32m\]' # foreground green
+    export FYEL='\[\033[33m\]' # foreground yellow
+    export FBLE='\[\033[34m\]' # foreground blue
+    export FMAG='\[\033[35m\]' # foreground magenta
+    export FCYN='\[\033[36m\]' # foreground cyan
+    export FWHT='\[\033[37m\]' # foreground white
+    export BBLK='\[\033[40m\]' # background black
+    export BRED='\[\033[41m\]' # background red
+    export BGRN='\[\033[42m\]' # background green
+    export BYEL='\[\033[43m\]' # background yellow
+    export BBLE='\[\033[44m\]' # background blue
+    export BMAG='\[\033[45m\]' # background magenta
+    export BCYN='\[\033[46m\]' # background cyan
+    export BWHT='\[\033[47m\]' # background white
+
     #Shows whole path (lower case w ------------------------* here)
     #PS1='${debian_chroot}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\$ '
 
     #Shows last folder in path (upper case w --------------* here)
-    PS1='[\[$(date +%H:%M:%S)\]] ${debian_chroot}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\$ '
+    PS1='[\t] ${debian_chroot}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[01;31m\] $(parse_git_branch)\[\033[00m\]\$ '
 else
-    PS1='[\[$(date +%H:%M:%S)\]] ${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+    PS1='[\t] ${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
 fi
 #if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

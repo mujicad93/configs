@@ -69,12 +69,10 @@ function pp__sim_pr {
 
 function fpga__build {
   cdf
-  make clean
-  cd hls
-  make clean
-  cd ../syn
+  cd syn
   make
-  cd ../par
+  cdf
+  cd par
   make
 }
 
@@ -83,10 +81,7 @@ function fpga__clean_build {
   make cleaner
   cd hls
   make clean
-  cd ../syn
-  make
-  cd ../par
-  make
+  fpga__build
 }
 
 alias hcp="hydra_copy"

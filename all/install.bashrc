@@ -38,6 +38,7 @@ sudo apt install vim -y
 if [[ -n $INSTALL_VSCODE ]]
 then
 sudo snap install code --classic
+echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf
 fi
 
 # Clang Format

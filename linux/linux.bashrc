@@ -10,7 +10,7 @@ else
   export xilVer="2019.1"
 fi
 export xilDir="/opt/Xilinx"
-export cformat="clang-format-5.0"
+export cformat="clang-format-6.0"
 
 MAIN_ASAR_DIR=~/git/iris_firmware/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files

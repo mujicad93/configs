@@ -42,7 +42,7 @@ echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf
 fi
 
 # Clang Format
-sudo apt install clang-format-5.0 -y
+sudo apt install clang-format-6.0 -y
 
 # Terminator
 if [[ -n $INSTALL_TERM ]]

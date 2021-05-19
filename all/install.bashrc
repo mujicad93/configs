@@ -75,6 +75,9 @@ then
 sudo adduser $USER vboxsf
 fi
 
+# better screenshot tool
+sudo apt-get install flametool -y
+
 sudo apt --fix-broken install
 sudo apt-get install xclip -y
 

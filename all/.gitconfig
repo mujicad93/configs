@@ -25,5 +25,6 @@
 	mrg = merge --ff-only --no-ff
 	cl = clean -x -d -f
 	rbc = rebase --continue
+	push = push -u
 [init]
 	templatedir = ~/configs/all/git_template

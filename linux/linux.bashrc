@@ -38,6 +38,8 @@ alias ml="cdm; matlab"
 export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
 export ASAR_ELF=Hydra_Autosar.elf
 
+export MLM_LICENSE_FILE=27000@10.0.7.22
+
 function hydra_copy {
   cp ~/windows/${ASAR_ELF} ${MAIN_ASAR_BUILD_DIR} -f
 }
@@ -96,7 +98,7 @@ alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
 # -Bn includes n lines of context before match
 
 ## Others
-VPN_FILE=~/vpn/mco1-vpn02-amujica-laptop-2020-config.ovpn
+VPN_FILE=~/vpn/andres-mujica-laptop-2021-config.ovpn
 alias pcapp="cd ~/PcapPlayer && ./run.sh &"
 alias lumvpn="sudo openvpn --config ${VPN_FILE}"
 alias startssh="sudo systemctl status ssh"

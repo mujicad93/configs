@@ -26,12 +26,17 @@ alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
 alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 
 #whenever you want to save stuff to a unique file just call something like command >> $TIMEFILE or command | tee $TIMEFILE
-TIMEFILE="test_$(date +"%F_%T")"
+export TIMEFILE='test_$(date +"%F_%T")'
 
-alias pr1p3_tests__build="cdi; cd resim; rm build -rf; mkdir build; cd build; cmake .. -GNinja && ninja && ninja install"
-alias pr1p3_tests__run_fpga="cdi; cd resim/build; ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
-alias pr1p3_tests__run_fusion="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_fusion.py"
-alias pr1p3_tests__run_cal="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_full.py"
+#PR_TEST__VERBOSITY="--capture=tee-sys"
+PR_TEST__VERBOSITY=
+
+alias pr_test__build="cdi; cd resim; rm build -rf; mkdir -p build && cd build && cmake -GNinja -DCMAKE_BUILD_TYPE=Debug .. && ninja install && ninja install && cd bin"
+alias pr_test__fpga="cdi; cd resim/build; ninja install && ninja install && cd bin && rm test.txt -f && python3.6 -m pytest -vv tests/pr1p3/test_area.py"
+alias pr_test__fusion="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_fusion.py"
+alias pr_test__cal="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_full.py"
+alias pr_test__e2e="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pip install . --upgrade --force-reinstall && python3.6 -m pytest -vv --capture=tee-sys -k test_end_to_end"
+alias pr_test__all="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pip install . --upgrade --force-reinstall && python3.6 -m pytest -vv --capture=tee-sys"
 
 alias ml="cdm; matlab"
 

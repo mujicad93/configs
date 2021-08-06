@@ -91,6 +91,12 @@ function fpga__clean_build {
   fpga__build
 }
 
+function envision {
+  cd ~/Downloads/EnVision-Internal-3.16.1-linux64
+  ./run_EnVision-Internal-3.16.1.sh -o -l envision.log
+  cd -
+}
+
 alias hcp="hydra_copy"
 alias hp="hydra_iris_prog"
 alias fb="fpga__build"

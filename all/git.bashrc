@@ -11,3 +11,13 @@ alias gb2="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --forma
 alias gp="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
 alias ga="git add -p"
 
+# Delete git branches that contain argument
+function gd {
+  if [ -z "$1" ]
+  then
+    echo "delete git branches that contain argument (git branch | grep <blah> | xargs git branch -D)"
+  else
+    git branch | grep $1 | xargs git branch -D
+  fi
+}
+

@@ -29,13 +29,15 @@ FW_DIR=C:/git/iris_firmware
 ASAR_BM_DIR=${FW_DIR}/hydra_iris_bootloader_vcc/CBD2000319_D00/Bootloader/HydraBM/Appl
 ASAR_FBL_DIR=${FW_DIR}/hydra_iris_bootloader_vcc/CBD2000319_D00/Bootloader/HydraFBL/Appl
 ASAR_GROUP_DIR=${FW_DIR}/hydra/arm/autosar
-MAIN_ASAR_DIR=C:/git/iris_firmware/hydra_iris_autosar_vcc
+MAIN_ASAR_DIR=${FW_DIR}/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
 MAIN_HYDRA_ELF=Hydra_Autosar.elf
 
+LINUX_DIR=Z:
+
 ASAR_BL_DIR=C:/git/iris_firmware/hydra_iris_bootloader_vcc/CBD2000319_D00/Bootloader/HydraFbl/Appl
 
-function hydra_build {
+function hydra_pp_and_arm_build {
   # Remove so we don't accidentally use an old elf
   rm_asar_elf;
   cd ${MAIN_ASAR_BUILD_DIR};
@@ -43,48 +45,47 @@ function hydra_build {
   cd -
 }
 
-function hydra_as_build {
+function hydra_arm_build {
   # Remove so we don't accidentally use an old elf
   rm ${MAIN_ASAR_BUILD_DIR}/Hydra_AS_FBL.elf -f
+  rm ${LINUX_DIR}/arm_outputs/Hydra_AS_FBL.elf -f
+
+  rm ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/call_*.h -f
+  cp ${LINUX_DIX}/arm_inputs/call_*.h ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/
+
+  rm ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/call_*.h -f
+  cp ${LINUX_DIX}/arm_inputs/call_*.h ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/
+
+  rm ${FW_DIR}/common/fpga_regs/*.h -f
+  cp ${LINUX_DIX}/arm_inputs/*.h ${FW_DIR}/common/fpga_regs/
+
   cd ${MAIN_ASAR_BUILD_DIR};
-  ./m.bat -f Makefile.FBL;
+  ./m.bat;
   cd -
+
+  cp ${MAIN_ASAR_BUILD_DIR}/Hydra_AS_FBL.elf ${LINUX_DIR}/arm_outputs/
 }
 
 function hydra_bm_build {
+  rm ${ASAR_BM_DIR}/HydraBM.elf -f
   cd ${ASAR_BM_DIR};
   ./m.bat;
   cd -
+  cp ${ASAR_BM_DIR}/HydraBM.elf ${LINUX_DIR}/arm_outputs/
 }
 
 function hydra_fbl_build {
+  rm ${ASAR_FBL_DIR}/HydraFbl.elf -f
   cd ${ASAR_FBL_DIR};
   ./m.bat;
   cd -
-}
-
-function hydra_cp_fbl {
-  rm ${ASAR_GROUP_DIR}/HydraFbl.elf -f
-  cp ${ASAR_FBL_DIR}/HydraFbl.elf ${ASAR_GROUP_DIR}
-
-  rm ${ASAR_GROUP_DIR}/HydraBM.elf -f
-  cp ${ASAR_BM_DIR}/HydraBM.elf ${ASAR_GROUP_DIR}
-
-  rm ${ASAR_GROUP_DIR}/Hydra_AS_FBL.elf -f
-  cp ${MAIN_ASAR_BUILD_DIR}/Hydra_AS_FBL.elf ${ASAR_GROUP_DIR}
+  cp ${ASAR_FBL_DIR}/HydraFbl.elf ${LINUX_DIR}/arm_outputs/
 }
 
 function hydra_build_all {
-  hydra_as_build
+  hydra_arm_build
   hydra_bm_build
   hydra_fbl_build
-}
-
-## Create flashable zip
-function hydra_smash {
-  cd  ${ASAR_GROUP_DIR}
-  wsl ./minvect HydraBm.elf HydraFbl.elf Hydra_AS_FBL.elf
-  cd -
 }
 
 function hydra_depend {
@@ -94,15 +95,9 @@ function hydra_depend {
   cd -
 }
 
-function hydra_clean_build {
-  cd ${MAIN_ASAR_BUILD_DIR};
-  ./iris_rebuild.bat;
-  cd -
-}
-
 function hydra_clean_build_asar {
   cd ${MAIN_ASAR_BUILD_DIR};
-  ./b.bat -f Makefile.FBL;
+  ./b.bat;
   cd -
 }
 

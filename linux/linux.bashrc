@@ -99,9 +99,23 @@ function pp__sim_pr {
   make clean
   if [ -z "$1" ]
   then
-    make sim
+    make sim USER_FLAGS="-DWRITE_PCAP"
   else
-    make sim MIPI_FRAMES_FILE=$1
+    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DWRITE_PCAP"
+  fi
+  mv sim/sim.csv ~/pcaps/
+  cd -
+}
+
+function pp__sim_pr2 {
+  cdp
+  rm ~/pcaps/sim.csv -f
+  make clean
+  if [ -z "$1" ]
+  then
+    make sim USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP"
+  else
+    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP"
   fi
   mv sim/sim.csv ~/pcaps/
   cd -

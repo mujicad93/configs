@@ -12,8 +12,13 @@ fi
 export xilDir="/opt/Xilinx"
 export cformat="clang-format-6.0"
 
+FW_DIR=~/git/iris_firmware
+WINDOWS_DIR=~/VM/windows/shared
+
 MAIN_ASAR_DIR=~/git/iris_firmware/hydra_iris_autosar_vcc
 MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
+
+ASAR_BINS_DIR=${FW_DIR}/hydra/arm/autosar
 
 ### Directories
 alias cdg="cd ~/git"
@@ -37,27 +42,55 @@ alias pr_test__fusion="cdi; cd resim/build/bin; cd .. && ninja install && ninja 
 alias pr_test__cal="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pytest -vv tests/pr1p3/test_full.py"
 alias pr_test__e2e="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pip install . --upgrade --force-reinstall && python3.6 -m pytest -vv --capture=tee-sys -k test_end_to_end"
 alias pr_test__all="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pip install . --upgrade --force-reinstall && python3.6 -m pytest -vv --capture=tee-sys"
+alias pr_test__liviu="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pip install . --upgrade --force-reinstall && python3.6 -m pytest -vv --capture=tee-sys -k test_areas_with_static_roic_frames"
+alias pr_test__this="cdi; cd resim/build/bin; cd .. && ninja install && ninja install && cd bin && python3.6 -m pip install . --upgrade --force-reinstall && python3.6 -m pytest -vv --capture=tee-sys -k"
 
 alias ml="cdm; matlab"
 
-export ASAR_ZIP=~/git/iris_firmware/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_Hydra_Autosar_autosar.zip
+export ASAR_ZIP=${FW_DIR}/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_VLoader_autosar.zip
 export ASAR_ELF=Hydra_Autosar.elf
 
 export MLM_LICENSE_FILE=27000@10.0.7.22
 
-function hydra_copy {
-  cp ~/windows/${ASAR_ELF} ${MAIN_ASAR_BUILD_DIR} -f
+function hydra_copy_elfs {
+  cp ${WINDOWS_DIR}/arm_outputs/*.elf ${ASAR_BINS_DIR}/ -f
+}
+
+function hydra_make_bin {
+  cd ~/git/iris_firmware/hydra/arm/autosar
+  ./minvect HydraBM.elf HydraFbl.elf Hydra_AS_FBL.elf
+  cd -
+}
+
+function hydra_make_arm_needs {
+  rm ${WINDOWS_DIR}/arm_inputs/* -f
+
+  cd ${FW_DIR}/hydra/pp/applications/datapath_pr
+  make clean
+  make
+  cd -
+  cp ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/call_*.h ${WINDOWS_DIR}/arm_inputs/
+
+  cd ${FW_DIR}/hydra/pp/applications/datapath_resim
+  make clean
+  make
+  cd -
+  cp ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/call_*.h ${WINDOWS_DIR}/arm_inputs/
+
+  cd ${FW_DIR}/common/fpga_regs
+  make clean
+  make
+  cd -
+  cp ${FW_DIR}/common/fpga_regs/*.h ${WINDOWS_DIR}/arm_inputs/
 }
 
 function hydra_iris_prog {
   # Remove zip so we don't program an old one if the copy fails
   rm ASAR_ZIP -f
-  rm ${MAIN_ASAR_BUILD_DIR}/${ASAR_ELF} -f
-  hydra_copy
-  cd ~/git/iris_firmware/hydra/arm/autosar;
-  ./smash;
-  hydra_flash ${ASAR_ZIP};
-  cd -
+  rm ${FW_DIR}/hydra/arm/autosar/*.elf -f
+  hydra_copy_elfs
+  hydra_make_bin
+  hydra_flash ${ASAR_ZIP}
 }
 
 function pp__sim_pr {

@@ -51,13 +51,13 @@ function hydra_arm_build {
   rm ${LINUX_DIR}/arm_outputs/Hydra_AS_FBL.elf -f
 
   rm ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/call_*.h -f
-  cp ${LINUX_DIX}/arm_inputs/call_*.h ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/
+  cp ${LINUX_DIR}/arm_inputs/call_*.h ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/
 
   rm ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/call_*.h -f
-  cp ${LINUX_DIX}/arm_inputs/call_*.h ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/
+  cp ${LINUX_DIR}/arm_inputs/call_*.h ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/
 
   rm ${FW_DIR}/common/fpga_regs/*.h -f
-  cp ${LINUX_DIX}/arm_inputs/*.h ${FW_DIR}/common/fpga_regs/
+  cp ${LINUX_DIR}/arm_inputs/*.h ${FW_DIR}/common/fpga_regs/
 
   cd ${MAIN_ASAR_BUILD_DIR};
   ./m.bat;

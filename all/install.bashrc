@@ -22,6 +22,8 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 fi
 
 # Git
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
 sudo apt install git -y
 
 # For ifconfig

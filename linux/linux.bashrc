@@ -12,6 +12,9 @@ fi
 export xilDir="/opt/Xilinx"
 export cformat="clang-format-6.0"
 
+export ARMLMD_LICENSE_FILE="27001@172.16.15.225"
+export ARM_PRODUCT_PATH="/home/andres/ARMCompiler6.6.2/sw/mappings"
+
 FW_DIR=~/git/iris_firmware
 WINDOWS_DIR=~/VM/windows/shared
 
@@ -53,7 +56,7 @@ export ASAR_ELF=Hydra_Autosar.elf
 export MLM_LICENSE_FILE=27000@10.0.7.22
 
 function hydra_copy_elfs {
-  cp ${WINDOWS_DIR}/arm_outputs/*.elf ${ASAR_BINS_DIR}/ -f
+  cp ${FW_DIR}/build/hydra_iris_autosar_vcc/Hydra_AS_FBL.elf ${FW_DIR}/hydra/arm/autosar/
 }
 
 function hydra_make_bin {
@@ -63,31 +66,26 @@ function hydra_make_bin {
 }
 
 function hydra_make_arm_needs {
-  rm ${WINDOWS_DIR}/arm_inputs/* -f
-
   cd ${FW_DIR}/hydra/pp/applications/datapath_pr
   make clean
   make
   cd -
-  cp ${FW_DIR}/hydra/pp/applications/datapath_pr/inc/call_*.h ${WINDOWS_DIR}/arm_inputs/
 
   cd ${FW_DIR}/hydra/pp/applications/datapath_resim
   make clean
   make
   cd -
-  cp ${FW_DIR}/hydra/pp/applications/datapath_resim/inc/call_*.h ${WINDOWS_DIR}/arm_inputs/
 
   cd ${FW_DIR}/common/fpga_regs
   make clean
   make
   cd -
-  cp ${FW_DIR}/common/fpga_regs/*.h ${WINDOWS_DIR}/arm_inputs/
 }
 
 function hydra_iris_prog {
   # Remove zip so we don't program an old one if the copy fails
   rm ASAR_ZIP -f
-  rm ${FW_DIR}/hydra/arm/autosar/*.elf -f
+  rm ${FW_DIR}/hydra/arm/autosar/Hydra_AS_FBL.elf -f
   hydra_copy_elfs
   hydra_make_bin
   hydra_flash ${ASAR_ZIP}
@@ -194,6 +192,8 @@ alias lumsshx11="ssh $IP -X -C -l $username"
 alias lumsshfoward="ssh -L 1235:localhost:10240 $IP -l $username"
 
 source ${configsDir}/all/source.bashrc
+
+export PATH=$PATH:/home/andres/ARMCompiler6.6.2/bin
 
 cdh
 cd -

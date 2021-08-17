@@ -28,7 +28,7 @@ function xilinx_drivers {
 ##------------------------------------------------------------------------------------------
 ## Synopsys variables
 ##------------------------------------------------------------------------------------------
-export LM_LICENSE_FILE="27020@10.0.7.22"
+#export LM_LICENSE_FILE="27020@10.0.7.22"
 export SNPSLMD_LICENSE_FILE=$LM_LICENSE_FILE
 export SYNOPSYS="/usr/synopsys"
 export VCS_HOME="$SYNOPSYS/vcs/P-2019.06-SP1"

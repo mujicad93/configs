@@ -3,7 +3,19 @@
 #NOTE: you can't use the source command with a variable that has '~'. You need an absolute path
 export configsDir="/home/$USER/configs"
 
+export FW_DIR=~/git/iris_firmware
+export FPGA_DIR=${FW_DIR}/fpga
+
+export MAIN_ASAR_DIR=${FW_DIR}/hydra_iris_autosar_vcc
+export MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
+
+export ASAR_BINS_DIR=${FW_DIR}/hydra/arm/autosar
+
+export WINDOWS_DIR=~/VM/windows/shared
+
+##################################################################################################
 ### Tools
+##################################################################################################
 if [[ -v xilVer ]]; then
   echo "using xilinx version $xilVer"
 else
@@ -15,26 +27,67 @@ export cformat="clang-format-6.0"
 export ARMLMD_LICENSE_FILE="27001@172.16.15.225"
 export ARM_PRODUCT_PATH="/home/andres/ARMCompiler6.6.2/sw/mappings"
 
-FW_DIR=~/git/iris_firmware
-WINDOWS_DIR=~/VM/windows/shared
-
-MAIN_ASAR_DIR=~/git/iris_firmware/hydra_iris_autosar_vcc
-MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
-
-ASAR_BINS_DIR=${FW_DIR}/hydra/arm/autosar
-
+##################################################################################################
 ### Directories
+##################################################################################################
 alias cdg="cd ~/git"
 alias cdh="cd ~/git/iris_firmware/hydra && source scripts/setup-env.sh"
-alias cdp="cd ~/git/iris_firmware/hydra/pp/applications/datapath_pr"
+alias cdp="cd ~/git/iris_firmware/hydra/pp/applications"
 alias cdm="cd ~/git/iris_firmware/resim/LidarDataAnalysis/src"
-alias cdi="cd ~/git/iris_firmware"
-alias cdf="cd ~/git/iris_firmware/fpga"
-alias cda="cd ~/git/iris_firmware/hydra_iris_autosar_vcc"
-alias cdas="cd ~/git/iris_firmware/source_iris_autosar_common"
 
-#whenever you want to save stuff to a unique file just call something like command >> $TIMEFILE or command | tee $TIMEFILE
-export TIMEFILE='test_$(date +"%F_%T")'
+# Go to FW dir
+function cdf {
+  if [ -z "$1" ]
+  then
+    cd ${FW_DIR}
+  else
+    cd ${FW_DIR}/$1
+  fi
+}
+
+# Go to FPGA dir
+function cdf {
+  if [ -z "$1" ]
+  then
+    cd ${FPGA_DIR}
+  else
+    cd ${FPGA_DIR}/$1
+  fi
+}
+
+# Go to FPGA SLIM dir
+function cdfs {
+  if [ -z "$1" ]
+  then
+    cd ${FPGA_DIR}/slim
+  else
+    cd ${FPGA_DIR}/slim/$1
+  fi
+}
+
+# Go to FPGA COMPACT RCVR dir
+function cdfcr {
+  if [ -z "$1" ]
+  then
+    cd ${FPGA_DIR}/compact_rcvr
+  else
+    cd ${FPGA_DIR}/compact_rcvr/$1
+  fi
+}
+
+# Go to FPGA COMPACT FUSION dir
+function cdfcf {
+  if [ -z "$1" ]
+  then
+    cd ${FPGA_DIR}/compact_fusion
+  else
+    cd ${FPGA_DIR}/compact_fusion/$1
+  fi
+}
+
+##################################################################################################
+### Test Harness
+##################################################################################################
 
 #PR_TEST__VERBOSITY="--capture=tee-sys"
 PR_TEST__VERBOSITY=
@@ -55,8 +108,12 @@ export ASAR_ELF=Hydra_Autosar.elf
 
 export MLM_LICENSE_FILE=27000@10.0.7.22
 
+##################################################################################################
+### Build Scripts
+##################################################################################################
+
 function hydra_copy_elfs {
-  cp ${FW_DIR}/build/hydra_iris_autosar_vcc/Hydra_AS_FBL.elf ${FW_DIR}/hydra/arm/autosar/
+  cp ${FW_DIR}/build/armclang-vcc/vcc/Hydra_AS_FBL.elf ${FW_DIR}/hydra/arm/autosar/
 }
 
 function hydra_make_bin {
@@ -84,7 +141,7 @@ function hydra_make_arm_needs {
 
 function hydra_iris_prog {
   # Remove zip so we don't program an old one if the copy fails
-  rm ASAR_ZIP -f
+  rm ${ASAR_ZIP} -f
   rm ${FW_DIR}/hydra/arm/autosar/Hydra_AS_FBL.elf -f
   hydra_copy_elfs
   hydra_make_bin
@@ -147,13 +204,17 @@ alias hp="hydra_iris_prog"
 alias fb="fpga__build"
 alias fcb="fpga__clean_build"
 
+##################################################################################################
 ### grep
+##################################################################################################
 alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
 # --exclude-dir=*test* excludes all directories with the word test
 # -An includes n lines of context after match
 # -Bn includes n lines of context before match
 
-## Others
+##################################################################################################
+### Others
+##################################################################################################
 VPN_FILE=~/vpn/andres-mujica-laptop-2021-config.ovpn
 alias pcapp="cd ~/PcapPlayer && ./run.sh &"
 alias lumvpn="sudo openvpn --config ${VPN_FILE}"
@@ -183,6 +244,9 @@ if [[ -v IP ]]; then
 else
   export IP=$vizcomp_ip
 fi
+
+#whenever you want to save stuff to a unique file just call something like "command >> $TIMEFILE" or "command | tee $TIMEFILE"
+export TIMEFILE='test_$(date +"%F_%T")'
 
 # Standard ssh
 alias lumssh="ssh $IP -l $username"

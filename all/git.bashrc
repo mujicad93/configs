@@ -6,9 +6,14 @@ alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold bl
 alias glp="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' -p"
 alias gs="git status"
 alias gc='git commit -v'
-alias gb='git branch -a -v --sort=-committerdate'
-alias gb2="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
-alias gp="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
+
+# show my latest git branches
+alias gb="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+# show EVERYONE's latest git branches
+alias gba='git branch -a -v --sort=-committerdate'
+
+alias gpull="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
+alias gpush="git push -u"
 alias ga="git add -p"
 
 # Delete git branches that contain argument

@@ -36,7 +36,7 @@ alias cdp="cd ~/git/iris_firmware/hydra/pp/applications"
 alias cdm="cd ~/git/iris_firmware/resim/LidarDataAnalysis/src"
 
 # Go to FW dir
-function cdf {
+function cdi {
   if [ -z "$1" ]
   then
     cd ${FW_DIR}

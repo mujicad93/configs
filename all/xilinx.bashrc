@@ -41,6 +41,7 @@ export SYN_PATH="$SCL_HOME/bin:$VCS_HOME/bin:$VERDI_HOME/bin:$SPYGLASS_BASE/bin:
 alias installer="/usr/synopsys/installer/installer -gui"
 alias lic="lmstat -a -c /usr/synopsys/Synopsys_Key_Site_43042_Server_304723_snpslmd.lic"
 export PATH="/home/$USER/bin:$PATH:$SYN_PATH"
+alias waves="dve -full64 -servermode -vpd sim.vpd &"
 
 
 ### Shortcuts

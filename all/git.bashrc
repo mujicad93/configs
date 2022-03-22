@@ -12,8 +12,10 @@ alias gb="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format
 # show EVERYONE's latest git branches
 alias gba='git branch -a -v --sort=-committerdate'
 
+alias branch="git branch | sed -n -e 's/^\* \(.*\)/\1/p'"
+alias branch2="git rev-parse --abbrev-ref HEAD"
+
 alias gpull="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
-alias gpush="git push -u"
 alias ga="git add -p"
 
 # Delete git branches that contain argument
@@ -24,5 +26,28 @@ function gd {
   else
     git branch | grep $1 | xargs git branch -D
   fi
+}
+
+function gh {
+  echo "------------------ bash aliases ----------------------"
+  echo "gl    - pretty log current branch"
+  echo "glp   - log with commit contents"
+  echo "gs    - git status"
+  echo "gc    - git commit -v"
+  echo "gb    - show my latest branches (in chronological order of pushing)"
+  echo "gba   - show EVERYONE's latest branches (in chronological order of pushing)"
+  echo "gpull - easy pull origin"
+  echo "ga    - git add -p"
+  echo "gd    - delete git branches that match argument given"
+  echo ""
+  echo "------------------ git aliases ----------------------"
+  echo "lg    - pretty log current branch"
+  echo "lga   - pretty log all branches"
+  echo "lgp   - log with commit contents"
+  echo "mrg   - merge with linear-history"
+  echo "cl    - clean -x -d -f"
+  echo "rbc   - rebase --continue"
+  echo "push  - has -u by default"
+  echo "df    - cleaner git diff"
 }
 

@@ -270,6 +270,21 @@ alias lumsshx11="ssh $IP -X -C -l $username"
 # Example for fowarding compiler explorer port
 alias lumsshfoward="ssh -L 1235:localhost:10240 $IP -l $username"
 
+function keyno {
+  # -o only matches the text you are looking for instead of whole line
+  # -P enables perl/regex like matching (used for \K which removes preceding text)
+  keyboard_id=$(xinput | grep "AT Translated Set 2 keyboard" | grep -Po "id=\K...")
+  xinput float $keyboard_id
+}
+
+function keyyes {
+  # -o only matches the text you are looking for instead of whole line
+  # -P enables perl/regex like matching (used for \K which removes preceding text)
+  keyboard_id=$(xinput | grep "AT Translated Set 2 keyboard" | grep -Po "id=\K..")
+  keyboard_master=$(xinput | grep "Virtual core keyboard" | grep -Po "id=\K..")
+  xinput reattach $keyboard_id $keyboard_master
+}
+
 source ${configsDir}/all/source.bashrc
 
 export PATH=$PATH:/home/andres/ARMCompiler6.6.2/bin

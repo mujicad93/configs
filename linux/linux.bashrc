@@ -85,6 +85,8 @@ function cdfcf {
   fi
 }
 
+alias cdpr="cd ${FPGA_DIR}/compact_rcvr/hls/pulse_reconstruction"
+
 ##################################################################################################
 ### Test Harness
 ##################################################################################################
@@ -111,6 +113,9 @@ export MLM_LICENSE_FILE=27000@10.0.7.22
 ##################################################################################################
 ### Build Scripts
 ##################################################################################################
+
+alias mc="make clean"
+alias mcm="make clean; make"
 
 function hydra_copy_elfs {
   cp ${FW_DIR}/build/armclang-vcc/vcc/Hydra_AS_FBL.elf ${FW_DIR}/hydra/arm/autosar/
@@ -139,6 +144,14 @@ function hydra_make_arm_needs {
   cd -
 }
 
+function make_regs {
+  cd ${FW_DIR}/common/fpga_regs
+  make clean
+  make
+  cd -
+}
+alias mr="make_regs"
+
 function hydra_iris_prog {
   # Remove zip so we don't program an old one if the copy fails
   rm ${ASAR_ZIP} -f
@@ -150,6 +163,7 @@ function hydra_iris_prog {
 
 function pp__sim_pr {
   cdp
+  cd datapath_pr
   rm ~/pcaps/sim.csv -f
   make clean
   if [ -z "$1" ]
@@ -164,6 +178,7 @@ function pp__sim_pr {
 
 function pp__sim_pr2 {
   cdp
+  cd datapath_pr
   rm ~/pcaps/sim.csv -f
   make clean
   if [ -z "$1" ]

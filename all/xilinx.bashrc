@@ -9,8 +9,10 @@
 
 # More archaic way to setup xilinx paths but doesn't override cmake
 VIVADO_BIN_DIR="$xilDir/Vivado/$xilVer/bin"
+VITIS_BIN_DIR="$xilDir/Vitis_HLS/$xilVer/bin"
 alias vivado="$VIVADO_BIN_DIR/vivado"
-alias vivado_hls="$VIVADO_BIN_DIR/vivado_hls"
+alias vivado_hls="$VITIS_BIN_DIR/vitis_hls"
+alias vitis_hls="$VITIS_BIN_DIR/vitis_hls"
 
 export XIL_VER="2019.1"
 export XILINX_VIVADO=/opt/Xilinx/Vivado/$XIL_VER

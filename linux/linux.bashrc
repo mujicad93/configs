@@ -30,62 +30,65 @@ export ARM_PRODUCT_PATH="/home/andres/ARMCompiler6.6.2/sw/mappings"
 ##################################################################################################
 ### Directories
 ##################################################################################################
-alias cdg="cd ~/git"
-alias cdh="cd ~/git/iris_firmware/hydra && source scripts/setup-env.sh"
-alias cdp="cd ~/git/iris_firmware/hydra/pp/applications"
-alias cdm="cd ~/git/iris_firmware/resim/LidarDataAnalysis/src"
+# Go to git directory
+function cdg {
+  cd ~/git/$1
+}
 
 # Go to FW dir
 function cdi {
-  if [ -z "$1" ]
-  then
-    cd ${FW_DIR}
-  else
-    cd ${FW_DIR}/$1
-  fi
+  cd ${FW_DIR}/$1
+}
+
+# Go to scripts
+function cds {
+  cd ${FW_DIR}/tools/scripts/$1
+}
+
+# Go to hydra directory
+function cdh {
+  cd ~/git/iris_firmware/hydra;
+  source scripts/setup-env.sh;
+}
+
+# Go to pixel processor directory
+function cdp {
+  cd ~/git/iris_firmware/hydra/pp/$1
+}
+
+# Go to pixel processor PR directory
+function cdpp {
+  cd ~/git/iris_firmware/hydra/pp/applications/datapath_pr/$1
+}
+
+# Go to LidarDataAnalysis direcotry
+function cdm {
+  cd ~/git/iris_firmware/resim/LidarDataAnalysis/src/$1
 }
 
 # Go to FPGA dir
 function cdf {
-  if [ -z "$1" ]
-  then
-    cd ${FPGA_DIR}
-  else
-    cd ${FPGA_DIR}/$1
-  fi
+  cd ${FPGA_DIR}/$1
 }
 
 # Go to FPGA SLIM dir
 function cdfs {
-  if [ -z "$1" ]
-  then
-    cd ${FPGA_DIR}/slim
-  else
-    cd ${FPGA_DIR}/slim/$1
-  fi
+  cd ${FPGA_DIR}/slim/$1
 }
 
 # Go to FPGA COMPACT RCVR dir
 function cdfcr {
-  if [ -z "$1" ]
-  then
-    cd ${FPGA_DIR}/compact_rcvr
-  else
-    cd ${FPGA_DIR}/compact_rcvr/$1
-  fi
+  cd ${FPGA_DIR}/compact_rcvr/$1
 }
 
 # Go to FPGA COMPACT FUSION dir
 function cdfcf {
-  if [ -z "$1" ]
-  then
-    cd ${FPGA_DIR}/compact_fusion
-  else
-    cd ${FPGA_DIR}/compact_fusion/$1
-  fi
+  cd ${FPGA_DIR}/compact_fusion/$1
 }
 
-alias cdpr="cd ${FPGA_DIR}/compact_rcvr/hls/pulse_reconstruction"
+function cdpr {
+  cd ${FPGA_DIR}/compact_rcvr/hls/pulse_reconstruction/$1
+}
 
 ##################################################################################################
 ### Test Harness
@@ -113,6 +116,16 @@ export MLM_LICENSE_FILE=27000@10.0.7.22
 ##################################################################################################
 ### Build Scripts
 ##################################################################################################
+
+function lum {
+  cd ~/git/c_test
+  rm run -rf
+  g++ test.cpp -o run
+  ./run $@
+  cd -
+}
+alias test_c="lum"
+alias ahelp="test_c"
 
 alias mc="make clean"
 alias mcm="make clean; make"
@@ -163,14 +176,14 @@ function hydra_iris_prog {
 
 function pp__sim_pr {
   cdp
-  cd datapath_pr
+  cd applications/datapath_pr
   rm ~/pcaps/sim.csv -f
   make clean
   if [ -z "$1" ]
   then
-    make sim USER_FLAGS="-DWRITE_PCAP"
+    make sim USER_FLAGS="-DWRITE_PCAP" PLATFORM=IRIS_SLIM_V1
   else
-    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DWRITE_PCAP"
+    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DWRITE_PCAP" PLATFORM=IRIS_SLIM_V1
   fi
   mv sim/sim.csv ~/pcaps/
   cd -
@@ -178,33 +191,60 @@ function pp__sim_pr {
 
 function pp__sim_pr2 {
   cdp
-  cd datapath_pr
+  cd applications/datapath_pr
   rm ~/pcaps/sim.csv -f
   make clean
   if [ -z "$1" ]
   then
-    make sim USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP"
+    make sim USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
   else
-    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP"
+    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
   fi
   mv sim/sim.csv ~/pcaps/
   cd -
 }
 
 function fpga__build {
-  cdf
+  make clean
   cd syn
   make
-  cdf
-  cd par
+  cd ../par
   make
+  make timing
 }
 
-function fpga__clean_build {
-  cdf
-  make cleaner
+function fpga__build_with_hls {
+  make clean
   cd hls
   make clean
+  cd ../syn
+  make
+  cd ../par
+  make
+  make timing
+}
+
+function fpga__build_cleaner {
+  make cleaner
+  cd syn
+  make
+  cd ../par
+  make
+  make timing
+}
+
+function fpga__build_slim {
+  cdfs
+  fpga__build
+}
+
+function fpga__build_cr {
+  cdfcr
+  fpga__build
+}
+
+function fpga__build_cf {
+  cdfcf
   fpga__build
 }
 
@@ -273,8 +313,15 @@ alias lumsshfoward="ssh -L 1235:localhost:10240 $IP -l $username"
 function keyno {
   # -o only matches the text you are looking for instead of whole line
   # -P enables perl/regex like matching (used for \K which removes preceding text)
-  keyboard_id=$(xinput | grep "AT Translated Set 2 keyboard" | grep -Po "id=\K...")
+  keyboard_id=$(xinput | grep "AT Translated Set 2 keyboard" | grep -Po "id=\K..")
   xinput float $keyboard_id
+}
+
+function mouseno {
+  # -o only matches the text you are looking for instead of whole line
+  # -P enables perl/regex like matching (used for \K which removes preceding text)
+  mouse_id=$(xinput | grep "SYNA2393:00 06CB:7A13 Touchpad" | grep -Po "id=\K..")
+  xinput float $mouse_id
 }
 
 function keyyes {
@@ -285,10 +332,31 @@ function keyyes {
   xinput reattach $keyboard_id $keyboard_master
 }
 
+function mouseyes {
+  # -o only matches the text you are looking for instead of whole line
+  # -P enables perl/regex like matching (used for \K which removes preceding text)
+  mouse_id=$(xinput | grep "SYNA2393:00 06CB:7A13 Touchpad" | grep -Po "id=\K..")
+  mouse_master=$(xinput | grep "Virtual core pointer" | grep -Po "id=\K..")
+  xinput float $mouse_id
+  xinput reattach $mouse_id $mouse_master
+}
+
+alias lrc="vim ~/configs/linux/linux.bashrc"
+
 source ${configsDir}/all/source.bashrc
 
 export PATH=$PATH:/home/andres/ARMCompiler6.6.2/bin
+export PATH=$PATH:/home/andres/SmartHLS-2021.3.1/SmartHLS/bin
 
-cdh
+eth_ifs=$(ifconfig -a)
+if grep -q eth_fake <<< $(ifconfig -a); then
+  echo "PP lic is set up"
+else
+  echo "PP lic is NOT set up"
+  sudo ~/fake_mac
+fi
+
+export VIDEANTIS_LICENSE_PATH=/home/andres/pp_license
+
 cd -
 

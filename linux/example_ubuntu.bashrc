@@ -136,7 +136,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 export HISTTIMEFORMAT="%m/%d/%y %T "
-export HISTIGNORE="ls:ll:lt:cd:pwd:bg:fg:history:cdi:cdf:cdp:gl:gs:git push:srcrc:git commit:ga:git mrg:gb:git stash:git pop::git add -p:lumvpn:fb"
+export HISTIGNORE="ls:ll:lt:cd:pwd:bg:fg:history:cdi:cdf:cdp:gl:gs:git push:srcrc:git commit:ga:git mrg:gb:git stash:git pop::git add -p:lumvpn:fb:git push --force"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

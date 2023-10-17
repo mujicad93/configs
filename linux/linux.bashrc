@@ -6,26 +6,19 @@ export configsDir="/home/$USER/configs"
 export FW_DIR=~/git/iris_firmware
 export FPGA_DIR=${FW_DIR}/fpga
 
-export MAIN_ASAR_DIR=${FW_DIR}/hydra_iris_autosar_vcc
-export MAIN_ASAR_BUILD_DIR=${MAIN_ASAR_DIR}/processor_build_files
-
-export ASAR_BINS_DIR=${FW_DIR}/hydra/arm/autosar
-
-export WINDOWS_DIR=~/VM/windows/shared
-
 ##################################################################################################
 ### Tools
 ##################################################################################################
 if [[ -v xilVer ]]; then
   echo "using xilinx version $xilVer"
 else
-  export xilVer="2019.1"
+  export xilVer="2022.1"
 fi
 export xilDir="/opt/Xilinx"
 export cformat="clang-format-6.0"
 
 export ARMLMD_LICENSE_FILE="27001@172.16.15.225"
-export ARM_PRODUCT_PATH="/home/andres/ARMCompiler6.6.2/sw/mappings"
+export ARM_PRODUCT_PATH="/home/andres/ARMCompiler6.6.4/sw/mappings"
 
 ##################################################################################################
 ### Directories
@@ -57,8 +50,12 @@ function cdp {
 }
 
 # Go to pixel processor PR directory
-function cdpp {
+function cdpp1 {
   cd ~/git/iris_firmware/hydra/pp/applications/datapath_pr/$1
+}
+
+function cdpp2 {
+  cd ~/git/iris_firmware/hydra/pp/applications/datapath_slimv2/$1
 }
 
 # Go to LidarDataAnalysis direcotry
@@ -72,22 +69,20 @@ function cdf {
 }
 
 # Go to FPGA SLIM dir
-function cdfs {
+function cdfs1 {
   cd ${FPGA_DIR}/slim/$1
 }
 
-# Go to FPGA COMPACT RCVR dir
-function cdfcr {
-  cd ${FPGA_DIR}/compact_rcvr/$1
+function cdfs21 {
+  cd ${FPGA_DIR}/slim_v2_primary/$1
 }
 
-# Go to FPGA COMPACT FUSION dir
-function cdfcf {
-  cd ${FPGA_DIR}/compact_fusion/$1
+function cdfs22 {
+  cd ${FPGA_DIR}/slim_v2_secondary/$1
 }
 
-function cdpr {
-  cd ${FPGA_DIR}/compact_rcvr/hls/pulse_reconstruction/$1
+function cdfs2p {
+  cd ${FPGA_DIR}/slim_v2_platform/$1
 }
 
 ##################################################################################################
@@ -108,9 +103,6 @@ alias pr_test__this="cdi; cd resim/build/bin; cd .. && ninja install && ninja in
 
 alias ml="cdm; matlab"
 
-export ASAR_ZIP=${FW_DIR}/hydra/arm/out/app/bcm89107_a01/bcm89107_a01_VLoader_autosar.zip
-export ASAR_ELF=Hydra_Autosar.elf
-
 export MLM_LICENSE_FILE=27000@10.0.7.22
 
 ##################################################################################################
@@ -124,38 +116,10 @@ function lum {
   ./run $@
   cd -
 }
-alias test_c="lum"
-alias ahelp="test_c"
 
-alias mc="make clean"
-alias mcm="make clean; make"
-
-function hydra_copy_elfs {
-  cp ${FW_DIR}/build/armclang-vcc/vcc/Hydra_AS_FBL.elf ${FW_DIR}/hydra/arm/autosar/
-}
-
-function hydra_make_bin {
-  cd ~/git/iris_firmware/hydra/arm/autosar
-  ./minvect HydraBM.elf HydraFbl.elf Hydra_AS_FBL.elf
-  cd -
-}
-
-function hydra_make_arm_needs {
-  cd ${FW_DIR}/hydra/pp/applications/datapath_pr
-  make clean
-  make
-  cd -
-
-  cd ${FW_DIR}/hydra/pp/applications/datapath_resim
-  make clean
-  make
-  cd -
-
-  cd ${FW_DIR}/common/fpga_regs
-  make clean
-  make
-  cd -
-}
+alias mc="m clean"
+alias mcm="m clean; m"
+alias mcs="m clean; m sim"
 
 function make_regs {
   cd ${FW_DIR}/common/fpga_regs
@@ -174,7 +138,48 @@ function hydra_iris_prog {
   hydra_flash ${ASAR_ZIP}
 }
 
-function pp__sim_pr {
+function sim_pr {
+  if [ "$1" = "hls" ]; then
+    cd ${FPGA_DIR}/slim_v2_platform/hls/hls_datapath
+    make sim_vis ARGS="--ray_csv ${FPGA_DIR}/slim_v2_platform/hls/hls_datapath/sim/sample_705d_roic.csv"
+    cd -
+  elif [ "$1" = "ppv1" ]; then
+    cdp
+    cd applications/datapath_pr
+    rm ~/pcaps/sim.csv -f
+    make clean
+    if [ -z "$2" ]; then
+      make sim USER_FLAGS="-DWRITE_PCAP" PLATFORM=IRIS_SLIM_V1
+    else
+      make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DWRITE_PCAP" PLATFORM=IRIS_SLIM_V1
+    fi
+    mv sim/sim.csv ~/pcaps/
+    cd -
+  elif [ "$1" = "ppv2" ]; then
+    cdp
+    cd applications/datapath_slimv2
+    rm ~/pcaps/sim.csv -f
+    make clean
+    if [ -z "$2" ]
+    then
+      make sim USER_FLAGS="-DUSE_FIXED_NUM_RAYS_SPEC_V4 -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
+    else
+      make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DUSE_FIXED_NUM_RAYS_SPEC_V4 -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
+    fi
+    mv sim/sim.csv ~/pcaps/
+    cd -
+  else
+    echo "Try hls or ppv1 or ppv2"
+  fi
+}
+
+function sim_pr_hls {
+  cd ${FPGA_DIR}/slim_v2_platform/hls/hls_datapath
+  make sim_vis ARGS="--ray_csv ${FPGA_DIR}/slim_v2_platform/hls/hls_datapath/sim/sample_705d_roic.csv"
+  cd -
+}
+
+function sim_pr_pp {
   cdp
   cd applications/datapath_pr
   rm ~/pcaps/sim.csv -f
@@ -189,75 +194,60 @@ function pp__sim_pr {
   cd -
 }
 
-function pp__sim_pr2 {
+function sim_pr_pp2 {
   cdp
-  cd applications/datapath_pr
+  cd applications/datapath_slimv2
   rm ~/pcaps/sim.csv -f
   make clean
   if [ -z "$1" ]
   then
-    make sim USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
+    make sim USER_FLAGS="-DUSE_FIXED_NUM_RAYS_SPEC_V4 -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
   else
-    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DUSE_V2_SPEC -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
+    make sim MIPI_FRAMES_FILE=$1 USER_FLAGS="-DUSE_FIXED_NUM_RAYS_SPEC_V4 -DWRITE_PCAP" PLATFORM=IRIS_SLIM_V2
   fi
   mv sim/sim.csv ~/pcaps/
   cd -
 }
 
-function fpga__build {
-  make clean
-  cd syn
-  make
-  cd ../par
-  make
-  make timing
-}
-
-function fpga__build_with_hls {
-  make clean
-  cd hls
-  make clean
-  cd ../syn
-  make
-  cd ../par
-  make
-  make timing
-}
-
-function fpga__build_cleaner {
-  make cleaner
-  cd syn
-  make
-  cd ../par
-  make
-  make timing
-}
-
-function fpga__build_slim {
-  cdfs
-  fpga__build
-}
-
-function fpga__build_cr {
-  cdfcr
-  fpga__build
-}
-
-function fpga__build_cf {
-  cdfcf
-  fpga__build
-}
-
 function envision {
-  cd ~/Downloads/EnVision-Internal-3.16.1-linux64
-  ./run_EnVision-Internal-3.16.1.sh -o -l envision.log
+  cd ~/envision/EnVision-3.28.0-gf59ff4897-linux64
+  ./run_EnVision-3.28.0-gf59ff4897.sh -o -l envision.log
   cd -
 }
 
-alias hcp="hydra_copy"
-alias hp="hydra_iris_prog"
-alias fb="fpga__build"
-alias fcb="fpga__clean_build"
+function telnet_iris {
+  cd ~/git/iris_firmware/tools/telnet/build
+  ./iris-telnet 10.2.1.111
+  cd -
+}
+
+function sv2_help {
+  echo "telnet_iris    || run iris_telnet client to auto athenticate (ip 10.2.1.111)"
+  echo "nm             || run nm fake off (need to cd to envision first, run with &)"
+  echo "envision nm-on || run envision, with nm-on it runs envison's nm fake-off"
+  echo "NOTES: telnet ip is 10.2.1.111"
+}
+
+function res_lap {
+  sudo xrandr --newmode "3840x2160_30.00"  339.57  3840 4080 4496 5152  2160 2161 2164 2197  -HSync +Vsync;
+  sudo xrandr --addmode DP-1-1 "3840x2160_30.00";
+  sudo xrandr --addmode DP-1-2 "3840x2160_30.00";
+  sudo xrandr --addmode DP-1-3 "3840x2160_30.00";
+}
+
+function fpga__build_ip {
+  cd $FPGA_DIR/common/ip;
+  make;
+  cd -;
+  cd $FPGA_DIR/slim_v2_primary/ip;
+  make;
+  cd -;
+  cd $FPGA_DIR/slim_v2_secondary/ip;
+  make;
+  cd -;
+}
+
+alias mip="fpga__build_ip";
 
 ##################################################################################################
 ### grep
@@ -267,25 +257,41 @@ alias grepc="grep -R --include=*.{c,cpp,h,hpp,asm} -A3 -B2"
 # -An includes n lines of context after match
 # -Bn includes n lines of context before match
 
+# Pipe output to these commands (i.e. "make | grep_error") to color the word error as red
+# grep_error will color output
+# grep_error_only will only spit out lines with error
+alias grep_error='grep --color -P --ignore-case -w "error|"'
+alias grep_error_only='grep --color -P --ignore-case -w "error"'
+
+# Make with errors colored
+function m {
+  make "$@" | grep_error
+}
+
+function me {
+  make "$@" | grep_error_only
+}
+
+# Run command with grep_error
+function ge {
+  "$@" | grep_error
+ }
+
+function geo {
+  "$@" | grep_error_only
+ }
+
 ##################################################################################################
 ### Others
 ##################################################################################################
-VPN_FILE=~/vpn/andres-mujica-laptop-2021-config.ovpn
-alias pcapp="cd ~/PcapPlayer && ./run.sh &"
-alias lumvpn="sudo openvpn --config ${VPN_FILE}"
-alias startssh="sudo systemctl status ssh"
-alias stopssh="sudo systemctl stop ssh"
-alias powon='echo "OUTP:STAT ON" | telnet 192.168.10.63 5024'
-alias powoff='echo "OUTP:STAT OFF" | telnet 192.168.10.63 5024'
-alias microcom='echo "******* ctrl+h for backspace, ctrl+\ to quit *******"; microcom'
 
 ## Echoes all udp commands sent by the hydra (received on port 58900)
-function hydra_udp_recv {
+function udp_recv {
   nc -ul 58900
 }
 
 ## Send console command over UDP ($* concatenates all arguments to function into 1 string)
-function hydra_udp_send {
+function udp_send {
   echo "$*" > /dev/udp/192.168.10.1/58900
 }
 
@@ -341,12 +347,15 @@ function mouseyes {
   xinput reattach $mouse_id $mouse_master
 }
 
+function sabr {
+  export LM_LICENSE_FILE=27004@srv-mco1-lic1
+}
+
 alias lrc="vim ~/configs/linux/linux.bashrc"
 
 source ${configsDir}/all/source.bashrc
 
-export PATH=$PATH:/home/andres/ARMCompiler6.6.2/bin
-export PATH=$PATH:/home/andres/SmartHLS-2021.3.1/SmartHLS/bin
+export PATH=$PATH:/home/andres/ARMCompiler6.6.4/bin
 
 eth_ifs=$(ifconfig -a)
 if grep -q eth_fake <<< $(ifconfig -a); then
@@ -357,6 +366,7 @@ else
 fi
 
 export VIDEANTIS_LICENSE_PATH=/home/andres/pp_license
+cdh
 
 cd -
 

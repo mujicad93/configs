@@ -34,3 +34,10 @@
 	df = diff --ignore-space-at-eol -b -w --ignore-blank-lines
 [init]
 	templatedir = ~/configs/all/git_template
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	template = ~/configs/all/git.commit-msg-template

@@ -120,6 +120,9 @@ function lum {
 alias mc="m clean"
 alias mcm="m clean; m"
 alias mcs="m clean; m sim"
+alias cm="clear; m"
+alias cmcm="clear; mcm"
+alias cmcs="clear; mcs"
 
 function make_regs {
   cd ${FW_DIR}/common/fpga_regs
